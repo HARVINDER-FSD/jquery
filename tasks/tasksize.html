@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tasksize</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="image.js"></script>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .main{
+        display: flex;
+        justify-content: center;  
+        border: 2px solid black; 
+        height:"250px";
+         width:"250px"
+    }
+    #two,#three, #four{
+        display: none;
+    }
+    .main2{
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      gap: 10px;
+    }
+    .main2 img{
+        border: 2px solid black;
+
+    }
+
+</style>
+<body>
+    <div class="main">
+        <img src="../images/tes1.jpg"  id="one">
+        <img src="../images/tes2.jpg"  id="two">
+        <img src="../images/tes4.jpg" id="three">
+        
+    </div>
+    <div class="main2">
+        <img src="../images\tes1.jpg"  width="100px" height="100px" id="btn1">
+        <img src="../images/tes2.jpg" width="100px" height="100px" id="btn2">
+        <img src="../images/tes4.jpg" width="100px" height="100px" id="btn3">
+       
+    </div>
+</body>
+<script>
+    $(document).ready(function(){
+        $("#btn1").click(function(){
+            $("#one").css({
+                display:"block"
+                
+            })
+            $("#two").css({
+                
+                display:"none"
+            })
+            $("#three").css({
+                display:"none"
+            })
+            $("#four").css({
+                display:"none"
+            })
+            
+        })
+
+        $("#btn2").click(function(){
+            $("#one").css({
+                display:"none"
+            })
+            $("#two").css({
+                display:"block"
+            })
+            $("#three").css({
+                display:"none"
+            })
+            $("#four").css({
+                display:"none"
+            })
+            
+        })
+        $("#btn3").click(function(){
+            $("#one").css({
+                display:"none"
+            })
+            $("#two").css({
+                display:"none"
+            })
+            $("#three").css({
+                display:"block"
+            })
+            $("#four").css({
+                display:"none"
+            })
+            
+        })
+        $("#btn4").click(function(){
+            $("#one").css({
+                display:"none"
+            })
+            $("#two").css({
+                display:"none"
+            })
+            $("#three").css({
+                display:"none"
+            })
+            $("#four").css({
+                display:"block"
+            })
+            
+        })
+    
+    })
+</script>
+</html>
