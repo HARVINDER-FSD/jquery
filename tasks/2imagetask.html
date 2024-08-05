@@ -8,7 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="image.js"></script>
+    <script src="2image.js"></script>
     <style>
         * {
             margin: 0;
@@ -17,10 +17,11 @@
         }
 
         .container {
-            border: 2px solid black;
+           
             width: 100%;
             height: 95vh;
             position: relative;
+            overflow: hidden;
 
         }
 
@@ -67,6 +68,7 @@
             bottom: 50px;
             right: 50px;
         }
+       
     </style>
 </head>
 
@@ -100,6 +102,7 @@
         <br>
         <br>
         <br>
+        <br>
         <div class="album9">
             <img src="../images/gan9.jpg" class="alb2">
         </div>
@@ -127,8 +130,10 @@
 
 
     </div>
-    <button>click here to show Album</button>
-
+    <button id="but">click here to show Album</button>
+    <button id="right">right click</button>
+<button id="left">left click</button>
+<button id="reset">Reset</button>
 
 </body>
 
