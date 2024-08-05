@@ -1,0 +1,13 @@
+#section1{
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid black;
+}
+.img-container{
+    border: 2px solid black;
+}
+#all{
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid black;
+}
