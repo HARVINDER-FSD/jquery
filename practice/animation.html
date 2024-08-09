@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="2image.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+           
+            width: 100%;
+            height: 95vh;
+            position: relative;
+            overflow: hidden;
+            animation: CONT 5s linear; 
+            animation-delay: 5s;
+            transform-style: preserve-3d; 
+           
+
+        }
+
+        .album1,
+        .album2,
+        .album3,
+        .album4,
+        .album5,
+        .album6,
+        .album7,
+        .album8,
+        .album9,
+        .album10,
+        .album11,
+        .album12,
+        .album13,
+        .album14,
+        .album15,
+        .album16 {
+            position: absolute;
+            top: 200px;
+            left: 800px;
+            animation: rotate 2s linear; 
+            animation-delay: 2s;
+            transform-style: preserve-3d; 
+          
+        }
+
+        .alb1 {
+            width: 270px;
+            height: 260px;
+            position: absolute; 
+            animation: spin 2s linear; 
+            animation-delay: 2s;
+            transform-style: preserve-3d;      
+        }
+       
+
+        .alb2 {
+            position: absolute;
+            top: 260px;
+            width: 270px;
+            height: 260px;
+            /* animation: rotate 2s linear; 
+            animation-delay: 2s;
+            transform-style: preserve-3d;  */
+        }
+       
+
+
+        .btn {
+            position: absolute;
+            bottom: 50px;
+            right: 50px;
+        }
+        @keyframes spin{
+            0%{
+                transform: rotate(0deg)
+            }
+            100% {
+                transform: rotateY(360deg);
+            }
+        }
+        @keyframes rotate{
+            0%{
+                transform: rotate(0deg)
+            }
+            100% {
+                transform: rotateX(360deg);
+            }
+        }
+        @keyframes CONT{
+            0% {
+                transform: perspective(1000px) rotateY(0deg);
+            }
+
+            100% {
+                transform: perspective(1000px) rotateY(360deg);
+            }
+        }
+       
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="album1">
+            <img src="../images/nac1.avif" class="alb1">
+        </div>
+        <div class="album2">
+            <img src="../images/nac2.jpg" class="alb1">
+        </div>
+        <div class="album3">
+            <img src="../images/nac3.jpg" class="alb1">
+        </div>
+        <div class="album4">
+            <img src="../images/nac4.jfif" class="alb1">
+        </div>
+        <div class="album5">
+            <img src="../images/nac5.jfif" class="alb1">
+        </div>
+        <div class="album6">
+            <img src="../images/nac6.jfif" class="alb1">
+        </div>
+        <div class="album7">
+            <img src="../images/nac7.jpg" class="alb1">
+        </div>
+        <div class="album8">
+            <!-- <img src="../images/nac8.jpg" class="alb1"> -->
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="album9">
+            <img src="../images/nac9.jpg "class="alb2">
+        </div>
+        <div class="album10">
+            <img src="../images/nac10.jpg" class="alb2">
+        </div>
+        <div class="album11">
+            <img src="../images/nac11.jpg" class="alb2">
+        </div>
+        <div class="album12">
+            <img src="../images/nac12.jpg" class="alb2">
+        </div>
+        <div class="album13">
+            <img src="../images/nac13.jpg" class="alb2">
+        </div>
+        <div class="album14">
+            <img src="../images/nac14.jpg" class="alb2">
+        </div>
+        <div class="album15">
+            <img src="../images/nac15.jpg" class="alb2">
+        </div>
+        <div class="album16">
+            <!-- <img src="../images/nac16.jfif" class="alb2"> -->
+        </div>
+
+
+    </div>
+    <button id="but">click here to show Album</button>
+    <button id="right">right click</button>
+<button id="left">left click</button>
+<button id="reset">Reset</button>
+
+</body>
+
+</html>
