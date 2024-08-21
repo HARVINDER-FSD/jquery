@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <div id="barchart_material" style="width: 100%; height: 500px;"></div>
+</head>
+<body>
+    
+</body>
+<script>
+        google.charts.load("current", {
+      packages: ["corechart"]
+    });
+
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Month', 'Bolivia', 'Ecuador', 'Madagascar', 'Papua New Guinea', 'Rwanda', 'Average'],
+        ['2016/04', 136, 691, 629, 1026, 366, 569.6],
+        ['2016/05', 165, 938, 522, 998, 450, 614.6],
+        ['2016/06', 135, 1120, 599, 1268, 288, 682],
+        ['2016/07', 157, 1167, 587, 807, 397, 623],
+        ['2016/08', 139, 1110, 615, 968, 215, 609.4]
+      ]);
+
+      var options = {
+        hAxis: {
+          title: 'Month'
+        },
+        seriesType: 'bars',
+        series: {
+          // Index no. based from data (5 for Average Data)
+          5: {
+            type: 'line'
+          }
+        },
+        title: "Annual Sales Report for FY'16",
+        width: '100%',
+        height: 400,
+        vAxis: {
+          title: 'Units Sold (In Millions)'
+        },
+        legend: {
+          position: 'none'
+        },
+        bar: {
+          groupWidth: '90%'
+        },
+//        isStacked: true
+      };
+
+      var chart = new google.visualization.ComboChart(document.getElementById('barchart_material'));
+
+      chart.draw(data, options);
+    }
+</script>
+</html>
