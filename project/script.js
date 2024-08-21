@@ -117,3 +117,42 @@ var profitChart = new Chart(ctx1, {
     }
 });
 
+
+document.addEventListener('DOMContentLoaded', function() {
+    const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const calendar = document.getElementById('calendar');
+
+    // Create the days of the week headers
+    daysOfWeek.forEach(day => {
+        const dayElement = document.createElement('div');
+        dayElement.className = 'day header';
+        dayElement.textContent = day;
+        calendar.appendChild(dayElement);
+    });
+
+    // Get current date info
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth();
+    
+    // Get the first day of the month (0: Sunday, 1: Monday, ..., 6: Saturday)
+    const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+    
+    // Get the number of days in the month
+    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+    // Add empty days for padding before the first day
+    for (let i = 0; i < firstDay; i++) {
+        const emptyDay = document.createElement('div');
+        emptyDay.className = 'day';
+        calendar.appendChild(emptyDay);
+    }
+
+    // Create the days of the month
+    for (let i = 1; i <= daysInMonth; i++) {
+        const dayElement = document.createElement('div');
+        dayElement.className = 'day';
+        dayElement.textContent = i;
+        calendar.appendChild(dayElement);
+    }
+});

@@ -6,16 +6,9 @@
     <title>Document</title>
 </head>
 <style>
-    body{
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  font-family: 'Jost', sans-serif;
-  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
-}
+ body{
+  background: linear-gradient(to bottom, #6a62b9, #3c31ad, #343466);
+} 
 .main{
   width: 350px;
   height: 500px;
@@ -34,7 +27,7 @@
   height: 100%;
 }
 label{
-  color: #fff;
+  color:#573b8a;
   font-size: 2.3em;
   justify-content: center;
   display: flex;
@@ -96,9 +89,159 @@ button:hover{
 #chk:checked ~ .signup label{
   transform: scale(.6);
 }
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #111;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo h2 {
+    color: #fff;
+    margin: 0;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav li {
+    margin: 15px 0;
+}
+
+.nav li a {
+    color: #bbb;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    transition: color 0.3s;
+}
+
+.nav li a i {
+    margin-right: 10px;
+}
+
+.nav li a:hover {
+    color: #1abc9c;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* .search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    background-color: #2b2b3a;
+    color: #fff;
+}
+
+.search-bar button {
+    padding: 10px;
+    background-color: #1abc9c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-bar button i {
+    color: #fff;
+} */
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info i {
+    margin-right: 15px;
+}
+
+.user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.dashboard1{
+  /* margin: 0 auto; */
+  display: flex;
+  justify-content: center;
+  height: 90%;
+  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+}
+form{
+ 
+}
+
 </style>
 <body>
-    <div class="main">    
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <h2><i class="fas fa-chart-line"></i> Sales Management</h2>
+        </div>
+        <ul class="nav">
+            <li><a href="./1finalproject.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a href="#profile"><i class="fas fa-user"></i> Profile</a></li>
+            <li><a href="#order"><i class="fas fa-shopping-cart"></i> Order</a></li>
+            <li><a href="#product"><i class="fas fa-box"></i> Product</a></li>
+            <li><a href="./report.html"><i class="fas fa-chart-bar"></i> Sales Report</a></li>
+            <li><a href="#message"><i class="fas fa-envelope"></i> Message</a></li>
+            <li><a href="#settings"><i class="fas fa-cog"></i> Settings</a></li>
+            <li><a href="#history"><i class="fas fa-history"></i> History</a></li>
+            <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+            <li><a href="#signup"><i class="fas fa-user-plus"></i> Sign Up</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="header">
+            <!-- <div class="search-bar">
+                <input type="text" placeholder="Search here...">
+                <button><i class="fas fa-search"></i></button>
+            </div> -->
+            <div class="user-info">
+                <i class="fas fa-bell"></i>
+                <div class="user-profile">
+                    <img src="user-avatar.png" alt="User Avatar">
+                </div>
+            </div>
+        </header>
+
+        <section class="dashboard1">
+        
+
+             <div class="main">    
         <input type="checkbox" id="chk" aria-hidden="true">
     
           <div class="signup">
@@ -121,5 +264,14 @@ button:hover{
             </form>
           </div>
       </div>
+
+            <!-- More sections like Visitor Insights, Earnings, Top Products, etc. can be added here -->
+        </section>
+        
+    </main>
+    
+</div>
+  
+   
 </body>
 </html>
