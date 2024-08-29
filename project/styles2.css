@@ -1,0 +1,320 @@
+
+        /* General Styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            background-color: #111114;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+            transition: margin-left 0.3s;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #000000;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s;
+        }
+
+        .sidebar.hide {
+            transform: translateX(-250px);
+        }
+
+        .logo h2 {
+            color: #fff;
+            margin: 0;
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav li {
+            margin: 15px 0;
+        }
+
+        .nav li a {
+            color: #bbb;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            transition: color 0.3s;
+        }
+
+        .nav li a i {
+            margin-right: 10px;
+        }
+
+        .nav li a:hover {
+            color: #1abc9c;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            transition: margin-left 0.3s;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            background-color: #2b2b3a;
+            color: #fff;
+        }
+
+        .search-bar button {
+            padding: 10px;
+            background-color: #1abc9c;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-bar button i {
+            color: #fff;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-info i {
+            margin-right: 15px;
+        }
+
+        .user-profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .dashboard .sales-summary {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            gap: 10px;
+        }
+
+        .dashboard .sales-summary .card {
+            background-color: #080808;
+            padding: 13px;
+            border-radius: 10px;
+            width: 22%;
+        }
+
+        .dashboard .sales-summary .card h3 {
+            margin: 0 0 10px 0;
+        }
+
+        .charts {
+            display: flex;
+            justify-content: space-between;
+            gap: 5px;
+        }
+
+        .chart-card {
+            background-color: #000000;
+            padding: 20px;
+            border-radius: 10px;
+            width: 48%;
+        }
+
+        .card {
+            background-color: #2b2b3a;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .level-earnings {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .card.level {
+            width: 49%;
+            padding: 20px;
+            background-color: #353545;
+            text-align: center;
+        }
+
+        .card.level canvas {
+            max-width: 100%;
+            height: 150px;
+        }
+
+        .card.earnings {
+            width: 49%;
+            padding: 20px;
+            background-color: #353545;
+        }
+
+        .card.earnings p {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        .card.earnings small {
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar {
+            background-color: #444;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress {
+            background-color: #1abc9c;
+            height: 15px;
+            width: 80%;
+        }
+
+        .employee-list {
+            margin-top: 20px;
+        }
+
+        .employee-list h3 {
+            margin-bottom: 10px;
+        }
+
+        .employee-list table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #2b2b3a;
+            color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .employee-list table th, .employee-list table td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        .employee-list table thead {
+            background-color: #444;
+        }
+
+        .employee-list table tbody tr {
+            border-bottom: 1px solid #444;
+        }
+
+        .employee-list table tbody tr:hover {
+            background-color: #3a3a4a;
+        }
+
+        .dash {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+            padding: 20px;
+        }
+
+        .card2 {
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 200px;
+        }
+
+        .burger-menu {
+            display: none;
+            cursor: pointer;
+        }
+
+        .burger-menu div {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 5px;
+            transition: all 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                position: fixed;
+                top: 0;
+                left: 0;
+                transform: translateX(-100%);
+                z-index: 1000;
+                transition: transform 0.3s;
+            }
+
+            .sidebar.show {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-top: 60px;
+            }
+
+            .burger-menu {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 15px;
+                left: 15px;
+                z-index: 1001;
+            }
+
+            .charts {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .chart-card {
+                width: 100%;
+            }
+
+            .dashboard .sales-summary {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .dashboard .sales-summary.card {
+                width: 100%;
+            }
+        }
+    

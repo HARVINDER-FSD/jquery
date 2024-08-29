@@ -14,6 +14,507 @@
 </head>
 
 <body>
+    <style>
+        body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    background-color: #111114;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #000000;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo h2 {
+    color: #fff;
+    margin: 0;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav li {
+    margin: 15px 0;
+}
+
+.nav li a {
+    color: #bbb;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    transition: color 0.3s;
+}
+
+.nav li a i {
+    margin-right: 10px;
+}
+
+.nav li a:hover {
+    color: #1abc9c;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    background-color: #2b2b3a;
+    color: #fff;
+}
+
+.search-bar button {
+    padding: 10px;
+    background-color: #1abc9c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-bar button i {
+    color: #fff;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info i {
+    margin-right: 15px;
+}
+
+.user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.dashboard .sales-summary {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.dashboard .sales-summary .card {
+    background-color: #080808;
+    padding: 13px;
+    border-radius: 10px;
+    width: 22%;
+    
+}
+
+.dashboard .sales-summary .card h3 {
+    margin: 0 0 10px 0;
+}
+
+.charts {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.chart-card {
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 10px;
+    width: 48%;
+}
+/* General card styles */
+.card {
+    background-color: #2b2b3a;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+/* Level Section */
+.level-earnings {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.card.level {
+    width: 49%;
+    padding: 20px;
+    background-color: #353545;
+    text-align: center;
+}
+
+.card.level canvas {
+    max-width: 100%;
+    height: 150px; /* Adjust height as necessary */
+}
+
+/* Earnings Section */
+.card.earnings {
+    width: 49%;
+    padding: 20px;
+    background-color: #353545;
+}
+
+.card.earnings p {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.card.earnings small {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    background-color: #444;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress {
+    background-color: #1abc9c;
+    height: 15px;
+    width: 80%; /* Dynamic width based on progress */
+}
+
+/* Employee List Section */
+.employee-list {
+    margin-top: 20px;
+}
+
+.employee-list h3 {
+    margin-bottom: 10px;
+}
+
+.employee-list table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #2b2b3a;
+    color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.employee-list table th, .employee-list table td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.employee-list table thead {
+    background-color: #444;
+}
+
+.employee-list table tbody tr {
+    border-bottom: 1px solid #444;
+}
+
+.employee-list table tbody tr:hover {
+    background-color: #3a3a4a;
+}
+
+.dash {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    padding: 20px;
+}
+.card2 {
+    background-color: #2a2a2a;
+    padding: 20px;
+    border-radius: 8px;
+}
+.chart-container {
+    position: relative;
+    height: 200px;
+}
+@media (max-width: 768px) {
+ 
+ 
+    
+    .container {
+        display: flex;
+        height: 100vh;
+    }
+    
+    .sidebar {
+        width: 250px;
+        background-color: #000000;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .logo h2 {
+        color: #fff;
+        margin: 0;
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .nav {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .nav li {
+        margin: 15px 0;
+    }
+    
+    .nav li a {
+        color: #bbb;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        padding: 10px 0;
+        transition: color 0.3s;
+    }
+    
+    .nav li a i {
+        margin-right: 10px;
+    }
+    
+    .nav li a:hover {
+        color: #1abc9c;
+    }
+    
+    .main-content {
+        flex-grow: 1;
+        padding: 20px;
+    }
+    
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    
+    .search-bar {
+        display: flex;
+        align-items: center;
+    }
+    
+    .search-bar input {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        margin-right: 10px;
+        background-color: #2b2b3a;
+        color: #fff;
+    }
+    
+    .search-bar button {
+        padding: 10px;
+        background-color: #1abc9c;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .search-bar button i {
+        color: #fff;
+    }
+    
+    .user-info {
+        display: flex;
+        align-items: center;
+    }
+    
+    .user-info i {
+        margin-right: 15px;
+    }
+    
+    .user-profile img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+    
+    .dashboard .sales-summary {
+        flex-direction: column;
+        margin-bottom: 20px;
+        gap: 10px;
+    }
+    
+    .dashboard .sales-summary .card {
+        background-color: #080808;
+        padding: 13px;
+        border-radius: 10px;
+        width: 22%;
+        
+    }
+    
+    .dashboard .sales-summary .card h3 {
+        margin: 0 0 10px 0;
+    }
+    .sales-summary{
+        width: 1000px;
+        text-align: center;
+
+    }
+    
+    .charts {
+       flex-direction: column;
+        gap: 5px;
+    }
+    
+    .chart-card {
+        background-color: #000000;
+        padding: 20px;
+        border-radius: 10px;
+        width: 48%;
+    }
+    /* General card styles */
+    .card {
+        background-color: #2b2b3a;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        color: #fff;
+    }
+    
+    /* Level Section */
+    .level-earnings {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+    
+    .card.level {
+        width: 49%;
+        padding: 20px;
+        background-color: #353545;
+        text-align: center;
+    }
+    
+    .card.level canvas {
+        max-width: 100%;
+        height: 150px; /* Adjust height as necessary */
+    }
+    
+    /* Earnings Section */
+    .card.earnings {
+        width: 49%;
+        padding: 20px;
+        background-color: #353545;
+    }
+    
+    .card.earnings p {
+        font-size: 24px;
+        margin: 10px 0;
+    }
+    
+    .card.earnings small {
+        display: block;
+        margin-bottom: 20px;
+    }
+    
+    .progress-bar {
+        background-color: #444;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    
+    .progress {
+        background-color: #1abc9c;
+        height: 15px;
+        width: 80%; /* Dynamic width based on progress */
+    }
+    
+    /* Employee List Section */
+    .employee-list {
+        margin-top: 20px;
+    }
+    
+    .employee-list h3 {
+        margin-bottom: 10px;
+    }
+    
+    .employee-list table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #2b2b3a;
+        color: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    
+    .employee-list table th, .employee-list table td {
+        padding: 12px 15px;
+        text-align: left;
+    }
+    
+    .employee-list table thead {
+        background-color: #444;
+    }
+    
+    .employee-list table tbody tr {
+        border-bottom: 1px solid #444;
+    }
+    
+    .employee-list table tbody tr:hover {
+        background-color: #3a3a4a;
+    }
+    
+    .dash {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+        padding: 20px;
+    }
+    .card2 {
+        background-color: #2a2a2a;
+        padding: 20px;
+        border-radius: 8px;
+    }
+    .chart-container {
+        position: relative;
+        height: 200px;
+    }
+
+}
+/* ------------map--------------- */
+
+
+    </style>
     <div class="container">
         <!-- Sidebar -->
         <aside class="sidebar">
@@ -99,7 +600,168 @@
 
     </div>
 
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
+     <script>
+        // Level Chart
+const levelCtx = document.getElementById('levelChart').getContext('2d');
+const levelChart = new Chart(levelCtx, {
+    type: 'bar',
+    data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+        datasets: [{
+            label: 'Volume',
+            data: [12, 19, 3, 5, 2, 3, 7],
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+        }, {
+            label: 'Service',
+            data: [5, 10, 15, 20, 25, 30, 35],
+            backgroundColor: 'rgba(153, 102, 255, 0.2)',
+            borderColor: 'rgba(153, 102, 255, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+// Customer Fulfillment Chart
+const fulfillmentCtx = document.getElementById('fulfillmentChart').getContext('2d');
+const fulfillmentChart = new Chart(fulfillmentCtx, {
+    type: 'line',
+    data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+        datasets: [{
+            label: 'This Month',
+            data: [65, 59, 80, 81, 56, 55, 40],
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 1
+        }, {
+            label: 'Last Month',
+            data: [28, 48, 40, 19, 86, 27, 90],
+            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+// Function to animate numbers
+const animateNumber = (element, start, end, duration) => {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        element.innerText = Math.floor(progress * (end - start) + start);
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        }
+    };
+    window.requestAnimationFrame(step);
+};
+
+// Simulate data fetching
+const fetchData = () => {
+    return {
+        totalSales: 10000,       // Example: $10k
+        totalOrders: 1200,       // Example: 1200 Orders
+        productsSold: 15,        // Example: 15 Products Sold
+        newCustomers: 25         // Example: 25 New Customers
+    };
+};
+
+// Update card content dynamically with animation
+document.querySelectorAll('.card').forEach((card, index) => {
+    card.addEventListener('click', () => {
+        const data = fetchData();
+
+        switch (index) {
+            case 0:
+                animateNumber(card.querySelector('p'), 0, data.totalSales, 1000);
+                card.querySelector('small').innerText = "+20% from yesterday";
+                break;
+            case 1:
+                animateNumber(card.querySelector('p'), 0, data.totalOrders, 1000);
+                card.querySelector('small').innerText = "+10% from yesterday";
+                break;
+            case 2:
+                animateNumber(card.querySelector('p'), 0, data.productsSold, 1000);
+                card.querySelector('small').innerText = "+7% from yesterday";
+                break;
+            case 3:
+                animateNumber(card.querySelector('p'), 0, data.newCustomers, 1000);
+                card.querySelector('small').innerText = "+13% from yesterday";
+                break;
+        }
+    });
+});
+
+var ctx1 = document.getElementById('profitChart').getContext('2d');
+var profitChart = new Chart(ctx1, {
+    type: 'doughnut',
+    data: {
+        labels: ['Profit'],
+        datasets: [{
+            data: [80, 20],
+            backgroundColor: ['#4CAF50', '#2a2a2a']
+        }]
+    }
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const calendar = document.getElementById('calendar');
+
+    // Create the days of the week headers
+    daysOfWeek.forEach(day => {
+        const dayElement = document.createElement('div');
+        dayElement.className = 'day header';
+        dayElement.textContent = day;
+        calendar.appendChild(dayElement);
+    });
+
+    // Get current date info
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth();
+    
+    // Get the first day of the month (0: Sunday, 1: Monday, ..., 6: Saturday)
+    const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+    
+    // Get the number of days in the month
+    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+    // Add empty days for padding before the first day
+    for (let i = 0; i < firstDay; i++) {
+        const emptyDay = document.createElement('div');
+        emptyDay.className = 'day';
+        calendar.appendChild(emptyDay);
+    }
+
+    // Create the days of the month
+    for (let i = 1; i <= daysInMonth; i++) {
+        const dayElement = document.createElement('div');
+        dayElement.className = 'day';
+        dayElement.textContent = i;
+        calendar.appendChild(dayElement);
+    }
+});
+
+     </script>
 </body>
 
 </html>
