@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attractive Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Weekly Sales (Bar Chart) -->
+    <div class="card">
+        <h3>Weekly Sales</h3>
+        <p class="amount">$47K</p>
+        <p class="change positive">+3.5%</p>
+        <canvas id="salesBarChart"></canvas>
+    </div>
+
+    <!-- Total Orders (Line Chart) -->
+    <div class="card">
+        <h3>Total Orders</h3>
+        <p class="amount">58.4K</p>
+        <p class="change negative">-13.6%</p>
+        <canvas id="ordersLineChart"></canvas>
+    </div>
+
+    <!-- Market Share (Doughnut Chart) -->
+    <div class="card">
+        <h3>Market Share</h3>
+        <canvas id="marketShareDoughnutChart"></canvas>
+    </div>
+</div>
+        <!-- Weather -->
+        <div class="card">
+            <h3>Weather</h3>
+            <p>New York City</p>
+            <p class="temperature">31°C</p>
+        </div>
+
+        <!-- Running Projects -->
+        <div class="card large">
+            <h3>Running Projects</h3>
+            <ul>
+                <li><span class="project">Falcon</span> <span class="progress">38%</span></li>
+                <li><span class="project">Reign</span> <span class="progress">79%</span></li>
+                <li><span class="project">Boots4</span> <span class="progress">90%</span></li>
+                <li><span class="project">Raven</span> <span class="progress">40%</span></li>
+                <li><span class="project">Slick</span> <span class="progress">70%</span></li>
+            </ul>
+        </div>
+
+        <!-- Total Sales Chart -->
+        <div class="card large">
+            <h3>Total Sales</h3>
+            <canvas id="salesChart"></canvas>
+        </div>
+
+        <!-- Storage Information -->
+        <div class="card">
+            <h3>Using Storage</h3>
+            <p>1775.06 MB of 2 GB</p>
+            <div class="storage-bar">
+                <div class="regular" style="width: 45%;"></div>
+                <div class="system" style="width: 18%;"></div>
+                <div class="shared" style="width: 10%;"></div>
+                <div class="free" style="width: 27%;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts1.js"></script>
+</body>
+</html>

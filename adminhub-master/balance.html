@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enhanced Dashboard Layout</title>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f0f4f7;
+  color: #333;
+}
+
+.dashboard {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+/* Card Styling */
+.card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.card h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  color: #1b262c;
+}
+
+.status {
+  font-size: 14px;
+  background-color: #daf7e3;
+  color: #28a745;
+  padding: 5px 10px;
+  border-radius: 12px;
+}
+
+/* Balance Section - Fixed height and width */
+.balance-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 300px; /* Fixed height for the whole section */
+  width: 100%; /* Occupy the full width of the card */
+}
+
+/* Fixed size for the chart */
+.balance-chart {
+  width: 60%; /* Chart takes 60% of the container width */
+  height: 100%; /* Chart takes the full height of the section */
+}
+
+#balanceWaveChart {
+  width: 100%;
+  height: 100%; /* Ensures the chart canvas fills the container */
+}
+
+/* Two Cards below the chart with fixed sizes */
+.balance-cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 35%; /* Cards take 35% of the section width */
+  height: 100%;
+}
+
+.balance-card {
+  background-color: #f9f9fb;
+  padding: 20px;
+  border-radius: 16px;
+  height: 48%; /* Each card gets half of the section's height */
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.balance-card h3 {
+  color: #6c757d;
+  font-size: 16px;
+}
+
+.balance-card p {
+  font-size: 28px;
+  color: #1b262c;
+  font-weight: 600;
+}
+
+.increase {
+  color: #28a745;
+}
+
+.decrease {
+  color: #dc3545;
+}
+.transactions {
+  height: 250px; /* Fixed height */
+}
+
+.transactions h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #1b262c;
+}
+
+.transaction-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.transaction-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.transaction-item:last-child {
+  border-bottom: none;
+}
+
+.transaction-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #eceff1;
+  margin-right: 15px;
+}
+
+/* Custom icons for different transaction types */
+.transport-icon {
+  background: url('https://img.icons8.com/fluency/48/000000/bus.png') no-repeat center;
+  background-size: contain;
+}
+
+.grocery-icon {
+  background: url('https://img.icons8.com/fluency/48/000000/grocery-store.png') no-repeat center;
+  background-size: contain;
+}
+
+.transaction-details p {
+  font-size: 16px;
+  color: #1b262c;
+  font-weight: 500;
+}
+
+.transaction-details span {
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.view-all-link {
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.view-all-link:hover {
+  text-decoration: underline;
+}
+a {
+  display: block;
+  text-align: right;
+  color: #007bff;
+  text-decoration: none;
+  margin-top: 20px;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Extra Styling for the cards */
+.card.spending {
+  background-color: #f7f9fc;
+}
+
+.card.schedule, .card.earnings {
+  background-color: #f9f9fb;
+}
+
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Balance Section with Large Wave Chart and Two Cards -->
+    <div class="card balance">
+      <h2>Balance <span class="status">On track</span></h2>
+      
+      <!-- Fixed size container for chart and cards -->
+      <div class="balance-section">
+        <!-- Chart -->
+        <div class="balance-chart">
+          <canvas id="balanceWaveChart"></canvas>
+        </div>
+  
+        <!-- Cards for Savings and Balance -->
+        <div class="balance-cards">
+          <div class="balance-card savings-card">
+            <h3>Saves</h3>
+            <p>43.50%</p>
+            <span class="increase">+2.45%</span>
+          </div>
+          <div class="balance-card total-balance-card">
+            <h3>Balance</h3>
+            <p>$52,422</p>
+            <span class="decrease">-4.75%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- Spending Section -->
+  <div class="card spending">
+    <h2>Spent this month: $682.5</h2>
+    <span class="status">On track</span>
+    <canvas id="spendingChart"></canvas>
+  </div>
+
+  <!-- Transactions Section -->
+  <div class="card transactions">
+    <h2>Your Transactions</h2>
+    <ul class="transaction-list">
+      <li class="transaction-item">
+        <div class="transaction-icon transport-icon"></div>
+        <div class="transaction-details">
+          <p>Public Transport</p>
+          <span>22 September 2020</span>
+        </div>
+      </li>
+      <li class="transaction-item">
+        <div class="transaction-icon grocery-icon"></div>
+        <div class="transaction-details">
+          <p>Grocery Store</p>
+          <span>18 September 2020</span>
+        </div>
+      </li>
+      <li class="transaction-item">
+        <div class="transaction-icon transport-icon"></div>
+        <div class="transaction-details">
+          <p>Public Transport</p>
+          <span>22 September 2020</span>
+        </div>
+      </li>
+    </ul>
+    <a href="#" class="view-all-link">View all</a>
+  </div>
+
+  <!-- Daily Schedule Section -->
+  <div class="card schedule">
+    <h2>27 May</h2>
+    <ul>
+      <li><span>Meet w/ Simmpple</span><span>01:00 PM - 02:00 PM</span></li>
+      <li><span>Fitness Training</span><span>02:00 PM - 03:00 PM</span></li>
+      <li><span>Reading time</span><span>03:00 PM - 04:00 PM</span></li>
+    </ul>
+    <a href="#">View all Tasks</a>
+  </div>
+
+  <!-- Earnings Section -->
+  <div class="card earnings">
+    <h2>This month earnings: $682.5</h2>
+    <span class="increase">+2.45%</span>
+    <canvas id="earningsChart"></canvas>
+  </div>
+</div>
+
+<script>
+// Chart for balance
+// Chart for balance wave
+// Chart for balance wave
+// Chart for balance wave
+const balanceWaveChart = document.getElementById('balanceWaveChart').getContext('2d');
+new Chart(balanceWaveChart, {
+  type: 'line',
+  data: {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+    datasets: [{
+      label: 'Balance',
+      data: [50000, 52000, 49000, 51000, 50000, 52422],
+      backgroundColor: 'rgba(66, 135, 245, 0.2)',
+      borderColor: 'rgba(66, 135, 245, 1)',
+      borderWidth: 2,
+      tension: 0.4, // Smooth curve
+      fill: true,
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false, // Ensures chart fills the fixed container
+    scales: {
+      x: {
+        display: false,
+        grid: {
+          display: false
+        }
+      },
+      y: {
+        display: true,
+        grid: {
+          display: false,
+          drawBorder: false,
+        }
+      }
+    }
+  }
+});
+
+
+// Chart for spending
+const spendingChart = document.getElementById('spendingChart').getContext('2d');
+new Chart(spendingChart, {
+  type: 'bar',
+  data: {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+    datasets: [{
+      label: 'Spending',
+      data: [600, 650, 700, 675, 682.5],
+      backgroundColor: 'rgba(153, 102, 255, 0.6)',
+      borderColor: 'rgba(153, 102, 255, 1)',
+      borderWidth: 2
+    }]
+  },
+  options: {
+    responsive: true,
+    scales: {
+      x: {
+        display: false
+      },
+      y: {
+        display: false
+      }
+    }
+  }
+});
+
+// Chart for earnings
+const earningsChart = document.getElementById('earningsChart').getContext('2d');
+new Chart(earningsChart, {
+  type: 'line',
+  data: {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+    datasets: [{
+      label: 'Earnings',
+      data: [600, 630, 660, 650, 682.5],
+      backgroundColor: 'rgba(54, 162, 235, 0.2)',
+      borderColor: 'rgba(54, 162, 235, 1)',
+      borderWidth: 2,
+      tension: 0.4, // Smooth curve
+    }]
+  },
+  options: {
+    responsive: true,
+    scales: {
+      x: {
+        display: false
+      },
+      y: {
+        display: false
+      }
+    }
+  }
+});
+
+</script>
+</body>
+</html>
