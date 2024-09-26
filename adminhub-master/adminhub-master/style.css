@@ -64,7 +64,7 @@ body {
 	overflow-x: hidden;
 	scrollbar-width: none;
 }
-#sidebar::--webkit-scrollbar {
+#sidebar:state(webkit-scrollbar) {
 	display: none;
 }
 #sidebar.hide {
@@ -362,7 +362,7 @@ body {
 
 
 
-#content main .box-info {
+#content main .box-info  {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 	grid-gap: 24px;
@@ -406,7 +406,54 @@ body {
 	color: var(--dark);	
 }
 
-
+/* secont box */
+#content main .box-info-2 {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	grid-gap: 24px;
+	margin-top: 36px;
+}
+#content main .box-info-2 li {
+	padding: 24px;
+	background: var(--light);
+	border-radius: 20px;
+	display: flex;
+	align-items: center;
+	grid-gap: 24px;
+}
+#content main .box-info-2 li .bx {
+	width: 80px;
+	height: 80px;
+	border-radius: 10px;
+	font-size: 36px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#content main .box-info-2 li:nth-child(1) .bx {
+	background: var(--light-blue);
+	color: var(--blue);
+}
+#content main .box-info-2 li:nth-child(2) .bx {
+	background: var(--light-yellow);
+	color: var(--yellow);
+}
+#content main .box-info-2 li:nth-child(3) .bx {
+	background: var(--light-orange);
+	color: var(--orange);
+}
+#content main .box-info-2 li:nth-child(4) .bx {
+	background: var(--light-orange);
+	color: var(--orange);
+}
+#content main .box-info-2 li .text h3 {
+	font-size: 24px;
+	font-weight: 600;
+	color: var(--dark);
+}
+#content main .box-info-2 li .text p {
+	color: var(--dark);	
+}
 
 
 
@@ -541,20 +588,7 @@ canvas {
 
 
 
-.chart-container {
-    width: 100%;
-    margin-bottom: 20px;
-}
 
-.chart-section {
-    width: 100%;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    overflow: hidden; /* Disables scrolling */
-    margin-bottom: 20px; /* Adds space between sections */
-}
 
 #orderStatusChart {
     height: 300px; /* Adjust height as needed */
@@ -564,38 +598,208 @@ canvas {
     height: 300px; /* Adjust height as needed */
 }
 
-canvas {
-    width: 100% !important;
-    height: 100% !important;
+
+  /* body {
+	background-color: #fff8f2;
+	font-family: Arial, sans-serif;
+  } */
+  
+  /* body {
+	background-color: #fff8f2;
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+  } */
+  
+ 
+  
+/* map-cal */
+.map-cont{
+	display: flex;
+	gap: 30px;
+	margin-top: 28px;
+	border-radius:  20px ;
+	background-color: var(--grey);
+	width: 100%;
+	padding: 10px;
+
+}
+.map{
+	/* border: 2px solid black; */
+	width: 100%;
+	height: 507px;
+
+	background-color: var(--light);
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+	border-radius: 15px;
 }
 
-.chart-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-
-.chart-container {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-}
-
-.chart-half {
-    width: 50%;
-    padding: 20px;
-}
-
-#barChart, #lineChart {
-    width: 100%;
-    height: 300px !important/* Fixed height */
-}
-
-
-
-
-
+/* General Styling */
+/* body {
+	font-family: 'Helvetica Neue', Arial, sans-serif;
+	background-color: #f5f7fa;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
+  }
+   */
+  /* Calendar Container */
+  .calendar-container {
+	width: 100%;
+	max-width: 500px;
+	background-color: #fff;
+	border-radius: 15px;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+  }
+  
+  /* Calendar Header */
+  .calendar-header {
+	background-color: #4a90e2;
+	color: #fff;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 20px;
+  }
+  
+  button {
+	padding: 10px;
+	background-color: #fff;
+	color: #4a90e2;
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+	transition: background-color 0.3s, box-shadow 0.3s;
+  }
+  
+  button:hover {
+	background-color: #4a90e2;
+	color: #fff;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  #monthAndYear {
+	font-size: 1.5rem;
+	font-weight: bold;
+	margin: 0;
+	text-align: center;
+	flex-grow: 1;
+	color: #fff;
+  }
+  
+  /* Calendar Grid */
+  .calendar {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	gap: 10px;
+	padding: 20px;
+	;
+  }
+  
+  /* Day Headers */
+  .calendar div.header {
+	background-color: #4a90e2;
+	color: #fff;
+	padding: 10px 0;
+	font-weight: bold;
+	text-align: center;
+	border-radius: 8px;
+  }
+  
+  /* Day Cells */
+  .calendar div.day {
+	background-color: #fff;
+	border: 1px solid #e1e4e8;
+	color: #4a4a4a;
+	text-align: center;
+	padding: 15px;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+	transition: background-color 0.3s, transform 0.2s;
+	cursor: pointer;
+  }
+  
+  .calendar div.day:hover {
+	background-color: #4a90e2;
+	color: #fff;
+	transform: scale(1.05);
+  }
+  
+  /* Today's Date */
+  .calendar div.today {
+	background-color: #ffcccb;
+	color: #d0021b;
+	border: 2px solid #d0021b;
+	font-weight: bold;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Empty Cells */
+  .calendar div.empty {
+	visibility: hidden;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+	.map-cont{
+		flex-direction: column;
+		gap: 10px;
+		margin-top: 28px;
+		border-radius:  20px ;
+		background-color: var(--light);
+		width: 100%;
+		padding: 10px;
+	
+	}
+	.map{
+		border: 2px solid black;
+		width: 100%;
+		height: 511px;
+		background-color: var(--light);
+	}
+	.calendar-container {
+	  width: 100%;
+	}
+  
+	button {
+	  padding: 8px;
+	}
+  
+	#monthAndYear {
+	  font-size: 1.3rem;
+	}
+  
+	.calendar div.day {
+	  padding: 12px;
+	}
+  }
+  
+  @media (max-width: 480px) {
+	.calendar-container {
+	  width: 95%;
+	}
+  
+	#monthAndYear {
+	  font-size: 1.2rem;
+	}
+  
+	button {
+	  padding: 6px;
+	}
+  
+	.calendar div.day {
+	  padding: 10px;
+	}
+  }
+  
+  
+  
+  
+  
 
 @media screen and (max-width: 768px) {
 	#sidebar {
@@ -661,3 +865,271 @@ canvas {
 		min-width: 420px;
 	}
 }
+/* General Styles */
+
+
+/* General Styles */
+
+
+.perfo {
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* min-height: 100vh; */
+}
+
+.container10 {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    width: 100%;
+    /* max-width: 1000px; */
+	/* overflow: hidden; */
+}
+
+/* Title Styles */
+h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1a1a2e;
+    margin-bottom: 20px;
+}
+
+/* Table Styles */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    /* background-color: #fff; */
+}
+
+table thead {
+    background-color: #f3f4f6;
+}
+
+table th, table td {
+    padding: 16px;
+    text-align: left;
+    font-weight: 400;
+}
+
+table th {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+table td {
+    font-size: 14px;
+    color: #555;
+    vertical-align: top;
+}
+
+table td strong {
+    display: block;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+table td .position {
+    font-size: 13px;
+    color: #888;
+    font-weight: 300;
+}
+
+/* Table Borders */
+table tr {
+    border-bottom: 1px solid #eaeaea;
+}
+
+/* Priority Labels */
+.priority {
+    padding: 8px 14px;
+    border-radius: 12px;
+    font-size: 13px;
+    color: white;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.priority.medium {
+    background-color: #5bc0de;
+}
+
+.priority.low {
+    background-color: #a8e5d3;
+}
+
+.priority.high {
+    background-color: #e57373;
+}
+
+.priority.critical {
+    background-color: #f5b461;
+}
+
+/* Pagination Styles */
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+}
+
+.pagination .pages {
+    display: flex;
+    align-items: center;
+}
+
+.pagination .pages a {
+    margin: 0 6px;
+    padding: 8px 12px;
+    border-radius: 50%;
+    text-decoration: none;
+    color: #555;
+    background-color: #f0f0f0;
+    font-weight: 400;
+    transition: background-color 0.3s ease;
+}
+
+.pagination .pages a.active {
+    background-color: #4a6cf7;
+    color: white;
+}
+
+.pagination .pages a:hover {
+    background-color: #ddd;
+}
+
+@media (max-width: 768px) {
+    table th, table td {
+        padding: 12px;
+    }
+    
+    .priority {
+        padding: 6px 10px;
+    }
+}
+
+
+
+/* new cont */
+.std {
+	font-family: Arial, sans-serif;
+	background-color: #f4f4f4;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	 /* Full viewport height */
+	padding: 20px; /* Padding to prevent overflow */
+  }
+
+  /* Container for cards */
+  .viewer-container {
+	display: flex;
+	flex-wrap: wrap; /* Allow wrapping */
+	justify-content: space-between; /* Space between cards */
+	gap: 20px; /* Gap between cards */
+	width: 80%; /* Width of container */
+	max-width: 900px; /* Max width */
+  }
+
+  /* Individual card styles */
+  .viewer-card {
+	background-color: #fff;
+	border-radius: 8px; /* Rounded corners */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+	padding: 20px; /* Inner padding */
+	text-align: center; /* Centered text */
+	position: relative; /* Positioning for icons */
+	width: calc(50% - 10px); /* 50% width with gap accounted */
+  }
+
+  .platform-name {
+	font-size: 20px;
+	font-weight: bold; /* Bold text */
+	margin-bottom: 10px; /* Space below */
+  }
+
+  .viewer-count {
+	font-size: 36px;
+	color: #007bff; /* Blue color for count */
+	font-weight: bold; /* Bold text */
+  }
+
+  .icon {
+	position: absolute; /* Position icon in corner */
+	top: 20px;
+	right: 20px;
+	font-size: 24px; /* Size of icon */
+	color: #ddd; /* Light color */
+  }
+
+  /* Different colors for cards */
+  .facebook {
+	border-left: 5px solid #3b5998; /* Facebook blue */
+  }
+
+  .instagram {
+	border-left: 5px solid #C13584; /* Instagram pink */
+  }
+
+  .google {
+	border-left: 5px solid #4285F4; /* Google blue */
+  }
+
+  .chrome {
+	border-left: 5px solid #db4437; /* Chrome red */
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+	.viewer-card {
+	  width: 100%; /* Full width for mobile */
+	}
+  } 
+  /* new */
+  /* Dark Mode Styles */
+body.dark .map {
+    background-color: #2c2c2c; /* Dark background for the map */
+}
+
+body.dark .calendar-container {
+    background-color: #2c2c2c; /* Dark background for the calendar */
+    color: #fff; /* White text for better contrast */
+}
+
+body.dark .calendar-header button {
+    background-color: #444; /* Dark buttons */
+    color: #fff; /* White text for buttons */
+}
+
+body.dark .calendar-header button:hover {
+    background-color: #555; /* Darker on hover */
+}
+body.dark .container10{
+	background-color: #060714;
+	color: white;
+}
+.body .dark table {
+	background-color: #060714;
+	color: #fff;
+}
+body.dark .container10 h2{
+	background-color: #060714;
+	color: white;
+}
+
+body.dark .priority {
+    background-color: #444; /* Dark background for priority labels */
+    color: #fff; /* White text for labels */
+}
+
+/* Add any additional styles needed for dark mode */
