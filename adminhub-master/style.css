@@ -1126,100 +1126,77 @@ table tr {
 
 
 /* new cont */
-.dashboard20 {
-	max-width: 1200px;
-	margin: 40px auto;
-	padding: 20px;
-  }
-  
-  /* Card Styling */
-  .card {
-	background-color: #ffffff;
-	border-radius: 16px;
-	padding: 25px;
-	box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
-	margin-bottom: 30px;
-	transition: all 0.3s ease;
+.std {
+	font-family: Arial, sans-serif;
+	background-color: #f4f4f4;
 	display: flex;
-	flex-direction: column;
-  }
-  
-  .card:hover {
-	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-	transform: translateY(-2px);
-  }
-  
-  .card h2 {
-	font-size: 24px;
-	margin-bottom: 20px;
-	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
-	font-weight: 600;
-	color: #1b262c;
+	 /* Full viewport height */
+	padding: 20px; /* Padding to prevent overflow */
   }
-  
-  .status {
-	font-size: 14px;
-	background-color: #daf7e3;
-	color: #28a745;
-	padding: 5px 10px;
-	border-radius: 12px;
-  }
-  
-  /* Balance Section - Fixed height and width */
-  .balance-section {
+
+  /* Container for cards */
+  .viewer-container {
 	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	height: 300px; /* Fixed height for the whole section */
-	width: 100%; /* Occupy the full width of the card */
+	flex-wrap: wrap; /* Allow wrapping */
+	justify-content: space-between; /* Space between cards */
+	gap: 20px; /* Gap between cards */
+	width: 80%; /* Width of container */
+	max-width: 900px; /* Max width */
   }
-  
-  /* Fixed size for the chart */
-  .balance-chart {
-	width: 60%; /* Chart takes 60% of the container width */
-	height: 100%; /* Chart takes the full height of the section */
+
+  /* Individual card styles */
+  .viewer-card {
+	background-color: #fff;
+	border-radius: 8px; /* Rounded corners */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+	padding: 20px; /* Inner padding */
+	text-align: center; /* Centered text */
+	position: relative; /* Positioning for icons */
+	width: calc(50% - 10px); /* 50% width with gap accounted */
   }
-  
-  #balanceWaveChart {
-	width: 100%;
-	height: 100%; /* Ensures the chart canvas fills the container */
+
+  .platform-name {
+	font-size: 20px;
+	font-weight: bold; /* Bold text */
+	margin-bottom: 10px; /* Space below */
   }
-  
-  /* Two Cards below the chart with fixed sizes */
-  .balance-cards {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	width: 35%; /* Cards take 35% of the section width */
-	height: 100%;
+
+  .viewer-count {
+	font-size: 36px;
+	color: #007bff; /* Blue color for count */
+	font-weight: bold; /* Bold text */
   }
-  
-  .balance-card {
-	background-color: #f9f9fb;
-	padding: 20px;
-	border-radius: 16px;
-	height: 48%; /* Each card gets half of the section's height */
-	text-align: center;
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+  .icon {
+	position: absolute; /* Position icon in corner */
+	top: 20px;
+	right: 20px;
+	font-size: 24px; /* Size of icon */
+	color: #ddd; /* Light color */
   }
-  
-  .balance-card h3 {
-	color: #6c757d;
-	font-size: 16px;
+
+  /* Different colors for cards */
+  .facebook {
+	border-left: 5px solid #3b5998; /* Facebook blue */
   }
-  
-  .balance-card p {
-	font-size: 28px;
-	color: #1b262c;
-	font-weight: 600;
+
+  .instagram {
+	border-left: 5px solid #C13584; /* Instagram pink */
   }
-  
-  .increase {
-	color: #28a745;
+
+  .google {
+	border-left: 5px solid #4285F4; /* Google blue */
   }
-  
-  .decrease {
-	color: #dc3545;
+
+  .chrome {
+	border-left: 5px solid #db4437; /* Chrome red */
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+	.viewer-card {
+	  width: 100%; /* Full width for mobile */
+	}
   }

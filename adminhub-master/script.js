@@ -272,60 +272,30 @@ var myChart = new Chart(ctx, {
     }
 });
 
-// User Chart Configuration
-const userCtx = document.getElementById('userChart').getContext('2d');
-const userChart = new Chart(userCtx, {
-    type: 'bar',
-    data: {
-        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6', 'Week 7'],
-        datasets: [{
-            label: 'Users',
-            data: [20, 5, 10, 30, 35, 40, 1000],
-            backgroundColor: 'rgba(153, 102, 255, 1)'
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
 
 // new 
-const balanceWaveChart = document.getElementById('balanceWaveChart').getContext('2d');
-new Chart(balanceWaveChart, {
-  type: 'line',
-  data: {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-    datasets: [{
-      label: 'Balance',
-      data: [50000, 52000, 49000, 51000, 50000, 52422],
-      backgroundColor: 'rgba(66, 135, 245, 0.2)',
-      borderColor: 'rgba(66, 135, 245, 1)',
-      borderWidth: 2,
-      tension: 0.4, // Smooth curve
-      fill: true,
-    }]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false, // Ensures chart fills the fixed container
-    scales: {
-      x: {
-        display: false,
-        grid: {
-          display: false
-        }
-      },
-      y: {
-        display: true,
-        grid: {
-          display: false,
-          drawBorder: false,
-        }
+(function() {
+  // Function to animate the count-up effect
+  function countUp(element, start, end, duration) {
+    let range = end - start; // Calculate range
+    let current = start; // Current value
+    let increment = end > start ? 1 : -1; // Increment direction
+    let stepTime = Math.abs(Math.floor(duration / range)); // Time per step
+    
+    const timer = setInterval(function() {
+      current += increment; // Increment value
+      element.textContent = current; // Update the displayed value
+      if (current === end) {
+        clearInterval(timer); // Stop the timer at the end
       }
-    }
+    }, stepTime); // Run every stepTime milliseconds
   }
-});
+
+  // Start the count-up for each platform when the DOM is ready
+  document.addEventListener('DOMContentLoaded', function() {
+    countUp(document.getElementById('facebook-counter'), 0, 1000, 2000); // 2 seconds
+    countUp(document.getElementById('instagram-counter'), 0, 1000, 2500); // 2.5 seconds
+    countUp(document.getElementById('google-counter'), 0, 1000, 3000); // 3 seconds
+    countUp(document.getElementById('chrome-counter'), 0, 1000, 3500); // 3.5 seconds
+  });
+})(); 

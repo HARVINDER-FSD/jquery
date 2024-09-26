@@ -3,393 +3,151 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enhanced Dashboard Layout</title>
+  <title>Viewer Counters</title>
   
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Boxicons CDN for icons -->
+  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
   <style>
+    /* General resets */
     * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #f0f4f7;
-  color: #333;
-}
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Full viewport height */
+      padding: 20px; /* Padding to prevent overflow */
+    }
 
-.dashboard {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 20px;
-}
+    /* Container for cards */
+    .viewer-container {
+      display: flex;
+      flex-wrap: wrap; /* Allow wrapping */
+      justify-content: space-between; /* Space between cards */
+      gap: 20px; /* Gap between cards */
+      width: 80%; /* Width of container */
+      max-width: 900px; /* Max width */
+    }
 
-/* Card Styling */
-.card {
-  background-color: #ffffff;
-  border-radius: 16px;
-  padding: 25px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
-  margin-bottom: 30px;
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-}
+    /* Individual card styles */
+    .viewer-card {
+      background-color: #fff;
+      border-radius: 8px; /* Rounded corners */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+      padding: 20px; /* Inner padding */
+      text-align: center; /* Centered text */
+      position: relative; /* Positioning for icons */
+      width: calc(50% - 10px); /* 50% width with gap accounted */
+    }
 
-.card:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px);
-}
+    .platform-name {
+      font-size: 20px;
+      font-weight: bold; /* Bold text */
+      margin-bottom: 10px; /* Space below */
+    }
 
-.card h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: 600;
-  color: #1b262c;
-}
+    .viewer-count {
+      font-size: 36px;
+      color: #007bff; /* Blue color for count */
+      font-weight: bold; /* Bold text */
+    }
 
-.status {
-  font-size: 14px;
-  background-color: #daf7e3;
-  color: #28a745;
-  padding: 5px 10px;
-  border-radius: 12px;
-}
+    .icon {
+      position: absolute; /* Position icon in corner */
+      top: 20px;
+      right: 20px;
+      font-size: 24px; /* Size of icon */
+      color: #ddd; /* Light color */
+    }
 
-/* Balance Section - Fixed height and width */
-.balance-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 300px; /* Fixed height for the whole section */
-  width: 100%; /* Occupy the full width of the card */
-}
+    /* Different colors for cards */
+    .facebook {
+      border-left: 5px solid #3b5998; /* Facebook blue */
+    }
 
-/* Fixed size for the chart */
-.balance-chart {
-  width: 60%; /* Chart takes 60% of the container width */
-  height: 100%; /* Chart takes the full height of the section */
-}
+    .instagram {
+      border-left: 5px solid #C13584; /* Instagram pink */
+    }
 
-#balanceWaveChart {
-  width: 100%;
-  height: 100%; /* Ensures the chart canvas fills the container */
-}
+    .google {
+      border-left: 5px solid #4285F4; /* Google blue */
+    }
 
-/* Two Cards below the chart with fixed sizes */
-.balance-cards {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 35%; /* Cards take 35% of the section width */
-  height: 100%;
-}
+    .chrome {
+      border-left: 5px solid #db4437; /* Chrome red */
+    }
 
-.balance-card {
-  background-color: #f9f9fb;
-  padding: 20px;
-  border-radius: 16px;
-  height: 48%; /* Each card gets half of the section's height */
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.balance-card h3 {
-  color: #6c757d;
-  font-size: 16px;
-}
-
-.balance-card p {
-  font-size: 28px;
-  color: #1b262c;
-  font-weight: 600;
-}
-
-.increase {
-  color: #28a745;
-}
-
-.decrease {
-  color: #dc3545;
-}
-.transactions {
-  height: 250px; /* Fixed height */
-}
-
-.transactions h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  font-weight: 600;
-  color: #1b262c;
-}
-
-.transaction-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.transaction-item {
-  display: flex;
-  align-items: center;
-  padding: 10px 0;
-  border-bottom: 1px solid #f0f0f0;
-}
-
-.transaction-item:last-child {
-  border-bottom: none;
-}
-
-.transaction-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #eceff1;
-  margin-right: 15px;
-}
-
-/* Custom icons for different transaction types */
-.transport-icon {
-  background: url('https://img.icons8.com/fluency/48/000000/bus.png') no-repeat center;
-  background-size: contain;
-}
-
-.grocery-icon {
-  background: url('https://img.icons8.com/fluency/48/000000/grocery-store.png') no-repeat center;
-  background-size: contain;
-}
-
-.transaction-details p {
-  font-size: 16px;
-  color: #1b262c;
-  font-weight: 500;
-}
-
-.transaction-details span {
-  font-size: 14px;
-  color: #6c757d;
-}
-
-.view-all-link {
-  display: inline-block;
-  margin-top: 15px;
-  font-size: 14px;
-  color: #007bff;
-  text-decoration: none;
-}
-
-.view-all-link:hover {
-  text-decoration: underline;
-}
-a {
-  display: block;
-  text-align: right;
-  color: #007bff;
-  text-decoration: none;
-  margin-top: 20px;
-  font-weight: 500;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* Extra Styling for the cards */
-.card.spending {
-  background-color: #f7f9fc;
-}
-
-.card.schedule, .card.earnings {
-  background-color: #f9f9fb;
-}
-
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .viewer-card {
+        width: 100%; /* Full width for mobile */
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="dashboard">
-    <!-- Balance Section with Large Wave Chart and Two Cards -->
-    <div class="card balance">
-      <h2>Balance <span class="status">On track</span></h2>
-      
-      <!-- Fixed size container for chart and cards -->
-      <div class="balance-section">
-        <!-- Chart -->
-        <div class="balance-chart">
-          <canvas id="balanceWaveChart"></canvas>
-        </div>
-  
-        <!-- Cards for Savings and Balance -->
-        <div class="balance-cards">
-          <div class="balance-card savings-card">
-            <h3>Saves</h3>
-            <p>43.50%</p>
-            <span class="increase">+2.45%</span>
-          </div>
-          <div class="balance-card total-balance-card">
-            <h3>Balance</h3>
-            <p>$52,422</p>
-            <span class="decrease">-4.75%</span>
-          </div>
-        </div>
-      </div>
-    </div>
 
-  <!-- Spending Section -->
-  <div class="card spending">
-    <h2>Spent this month: $682.5</h2>
-    <span class="status">On track</span>
-    <canvas id="spendingChart"></canvas>
+<div class="viewer-container">
+  <div class="viewer-card facebook">
+    <i class='bx bxl-facebook icon'></i>
+    <div class="platform-name">Facebook</div>
+    <div class="viewer-count" id="facebook-counter">0</div>
   </div>
 
-  <!-- Transactions Section -->
-  <div class="card transactions">
-    <h2>Your Transactions</h2>
-    <ul class="transaction-list">
-      <li class="transaction-item">
-        <div class="transaction-icon transport-icon"></div>
-        <div class="transaction-details">
-          <p>Public Transport</p>
-          <span>22 September 2020</span>
-        </div>
-      </li>
-      <li class="transaction-item">
-        <div class="transaction-icon grocery-icon"></div>
-        <div class="transaction-details">
-          <p>Grocery Store</p>
-          <span>18 September 2020</span>
-        </div>
-      </li>
-      <li class="transaction-item">
-        <div class="transaction-icon transport-icon"></div>
-        <div class="transaction-details">
-          <p>Public Transport</p>
-          <span>22 September 2020</span>
-        </div>
-      </li>
-    </ul>
-    <a href="#" class="view-all-link">View all</a>
+  <div class="viewer-card instagram">
+    <i class='bx bxl-instagram icon'></i>
+    <div class="platform-name">Instagram</div>
+    <div class="viewer-count" id="instagram-counter">0</div>
   </div>
 
-  <!-- Daily Schedule Section -->
-  <div class="card schedule">
-    <h2>27 May</h2>
-    <ul>
-      <li><span>Meet w/ Simmpple</span><span>01:00 PM - 02:00 PM</span></li>
-      <li><span>Fitness Training</span><span>02:00 PM - 03:00 PM</span></li>
-      <li><span>Reading time</span><span>03:00 PM - 04:00 PM</span></li>
-    </ul>
-    <a href="#">View all Tasks</a>
+  <div class="viewer-card google">
+    <i class='bx bxl-google icon'></i>
+    <div class="platform-name">Google</div>
+    <div class="viewer-count" id="google-counter">0</div>
   </div>
 
-  <!-- Earnings Section -->
-  <div class="card earnings">
-    <h2>This month earnings: $682.5</h2>
-    <span class="increase">+2.45%</span>
-    <canvas id="earningsChart"></canvas>
+  <div class="viewer-card chrome">
+    <i class='bx bxl-chrome icon'></i>
+    <div class="platform-name">Chrome</div>
+    <div class="viewer-count" id="chrome-counter">0</div>
   </div>
 </div>
 
 <script>
-// Chart for balance
-// Chart for balance wave
-// Chart for balance wave
-// Chart for balance wave
-const balanceWaveChart = document.getElementById('balanceWaveChart').getContext('2d');
-new Chart(balanceWaveChart, {
-  type: 'line',
-  data: {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-    datasets: [{
-      label: 'Balance',
-      data: [50000, 52000, 49000, 51000, 50000, 52422],
-      backgroundColor: 'rgba(66, 135, 245, 0.2)',
-      borderColor: 'rgba(66, 135, 245, 1)',
-      borderWidth: 2,
-      tension: 0.4, // Smooth curve
-      fill: true,
-    }]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false, // Ensures chart fills the fixed container
-    scales: {
-      x: {
-        display: false,
-        grid: {
-          display: false
+  // Self-invoking function to avoid conflicts
+  (function() {
+    // Function to animate the count-up effect
+    function countUp(element, start, end, duration) {
+      let range = end - start; // Calculate range
+      let current = start; // Current value
+      let increment = end > start ? 1 : -1; // Increment direction
+      let stepTime = Math.abs(Math.floor(duration / range)); // Time per step
+      
+      const timer = setInterval(function() {
+        current += increment; // Increment value
+        element.textContent = current; // Update the displayed value
+        if (current === end) {
+          clearInterval(timer); // Stop the timer at the end
         }
-      },
-      y: {
-        display: true,
-        grid: {
-          display: false,
-          drawBorder: false,
-        }
-      }
+      }, stepTime); // Run every stepTime milliseconds
     }
-  }
-});
 
-
-// Chart for spending
-const spendingChart = document.getElementById('spendingChart').getContext('2d');
-new Chart(spendingChart, {
-  type: 'bar',
-  data: {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-    datasets: [{
-      label: 'Spending',
-      data: [600, 650, 700, 675, 682.5],
-      backgroundColor: 'rgba(153, 102, 255, 0.6)',
-      borderColor: 'rgba(153, 102, 255, 1)',
-      borderWidth: 2
-    }]
-  },
-  options: {
-    responsive: true,
-    scales: {
-      x: {
-        display: false
-      },
-      y: {
-        display: false
-      }
-    }
-  }
-});
-
-// Chart for earnings
-const earningsChart = document.getElementById('earningsChart').getContext('2d');
-new Chart(earningsChart, {
-  type: 'line',
-  data: {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-    datasets: [{
-      label: 'Earnings',
-      data: [600, 630, 660, 650, 682.5],
-      backgroundColor: 'rgba(54, 162, 235, 0.2)',
-      borderColor: 'rgba(54, 162, 235, 1)',
-      borderWidth: 2,
-      tension: 0.4, // Smooth curve
-    }]
-  },
-  options: {
-    responsive: true,
-    scales: {
-      x: {
-        display: false
-      },
-      y: {
-        display: false
-      }
-    }
-  }
-});
-
+    // Start the count-up for each platform when the DOM is ready
+    document.addEventListener('DOMContentLoaded', function() {
+      countUp(document.getElementById('facebook-counter'), 0, 1000, 2000); // 2 seconds
+      countUp(document.getElementById('instagram-counter'), 0, 1000, 2500); // 2.5 seconds
+      countUp(document.getElementById('google-counter'), 0, 1000, 3000); // 3 seconds
+      countUp(document.getElementById('chrome-counter'), 0, 1000, 3500); // 3.5 seconds
+    });
+  })(); // Immediately invoke the function
 </script>
+
 </body>
 </html>

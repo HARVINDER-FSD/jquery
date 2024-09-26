@@ -3,72 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Attractive Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Balance Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .track{
+            display: flex;
+            justify-content: space-between;
+            background-color: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 1200px;
+        }
+
+        .balance-section {
+            flex: 2;
+            padding-right: 20px;
+        }
+
+        .balance-section h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        canvas {
+            max-width: 100%;
+            height: 300px;
+        }
+
+        .stats-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex: 1;
+            padding-left: 20px;
+        }
+
+        .info-card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .info-card p {
+            margin: 0;
+            font-size: 18px;
+            color: #6c757d;
+        }
+
+        .info-card h3 {
+            margin: 10px 0;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .positive {
+            color: #28a745;
+            font-size: 16px;
+        }
+
+        .negative {
+            color: #dc3545;
+            font-size: 16px;
+        }
+
+        .status {
+            text-align: right;
+            padding: 10px;
+            background-color: #eaffea;
+            color: #28a745;
+            font-weight: bold;
+            border-radius: 20px;
+            font-size: 16px;
+            width: fit-content;
+            align-self: flex-end;
+        }
+    </style>
 </head>
 <body>
-  <div class="dashboard">
-    <!-- Weekly Sales (Bar Chart) -->
-    <div class="card">
-        <h3>Weekly Sales</h3>
-        <p class="amount">$47K</p>
-        <p class="change positive">+3.5%</p>
-        <canvas id="salesBarChart"></canvas>
-    </div>
-
-    <!-- Total Orders (Line Chart) -->
-    <div class="card">
-        <h3>Total Orders</h3>
-        <p class="amount">58.4K</p>
-        <p class="change negative">-13.6%</p>
-        <canvas id="ordersLineChart"></canvas>
-    </div>
-
-    <!-- Market Share (Doughnut Chart) -->
-    <div class="card">
-        <h3>Market Share</h3>
-        <canvas id="marketShareDoughnutChart"></canvas>
-    </div>
-</div>
-        <!-- Weather -->
-        <div class="card">
-            <h3>Weather</h3>
-            <p>New York City</p>
-            <p class="temperature">31°C</p>
+    <div class="main-track">
+    <div class="track">
+        <div class="balance-section">
+            <h2>Balance</h2>
+            <canvas id="balanceChart"></canvas>
         </div>
-
-        <!-- Running Projects -->
-        <div class="card large">
-            <h3>Running Projects</h3>
-            <ul>
-                <li><span class="project">Falcon</span> <span class="progress">38%</span></li>
-                <li><span class="project">Reign</span> <span class="progress">79%</span></li>
-                <li><span class="project">Boots4</span> <span class="progress">90%</span></li>
-                <li><span class="project">Raven</span> <span class="progress">40%</span></li>
-                <li><span class="project">Slick</span> <span class="progress">70%</span></li>
-            </ul>
-        </div>
-
-        <!-- Total Sales Chart -->
-        <div class="card large">
-            <h3>Total Sales</h3>
-            <canvas id="salesChart"></canvas>
-        </div>
-
-        <!-- Storage Information -->
-        <div class="card">
-            <h3>Using Storage</h3>
-            <p>1775.06 MB of 2 GB</p>
-            <div class="storage-bar">
-                <div class="regular" style="width: 45%;"></div>
-                <div class="system" style="width: 18%;"></div>
-                <div class="shared" style="width: 10%;"></div>
-                <div class="free" style="width: 27%;"></div>
+        <div class="stats-section">
+            <div class="info-card">
+                <p>Saves</p>
+                <h3 id="savesPercentage">43.50%</h3>
+                <p class="positive">+<span id="savesIncrease">2.45</span>%</p>
             </div>
+            <div class="info-card">
+                <p>Balance</p>
+                <h3 id="balanceAmount">$52,422</h3>
+                <p class="negative">-<span id="balanceDecrease">4.75</span>%</p>
+            </div>
+            <span class="status">On track</span>
         </div>
     </div>
+    </div>
+    <script>
+        // Balance chart configuration
+        const ctx = document.getElementById('balanceChart').getContext('2d');
+        const data = {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+            datasets: [{
+                label: 'Balance',
+                data: [50500, 52000, 51000, 49500, 50000, 50500, 52422],
+                fill: true,
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                pointBackgroundColor: 'rgba(54, 162, 235, 1)',
+                pointBorderColor: '#fff',
+                pointHoverRadius: 7,
+                pointHoverBackgroundColor: '#36A2EB',
+                tension: 0.4
+            }]
+        };
 
-    <script src="scripts1.js"></script>
+        const config = {
+            type: 'line',
+            data: data,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        min: 49000,
+                        max: 52500
+                    }
+                }
+            }
+        };
+
+        const balanceChart = new Chart(ctx, config);
+
+        // Counter function
+        function counter(element, start, end, duration, prefix = '', suffix = '') {
+            let range = end - start;
+            let current = start;
+            let increment = range / (duration / 50);  // Change how fast it increments
+            let stepTime = 50;  // Frequency of updates in ms (50ms = smoother, faster)
+            
+            let timer = setInterval(() => {
+                current += increment;
+                element.innerHTML = prefix + Math.floor(current).toLocaleString() + suffix;
+                
+                // Stop when reaching the end
+                if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
+                    clearInterval(timer);
+                    element.innerHTML = prefix + end.toLocaleString() + suffix;  // Ensure final number is set
+                }
+            }, stepTime);
+        }
+
+        // Animate counters on page load
+        window.onload = () => {
+            counter(document.getElementById('balanceAmount'), 50000, 52422, 2000, '$');  // Counts up to $52,422
+            counter(document.getElementById('savesPercentage'), 0, 43.50, 2000, '', '%');  // Counts up to 43.50%
+            counter(document.getElementById('savesIncrease'), 0, 2.45, 1000, '+');  // Counts up to +2.45
+            counter(document.getElementById('balanceDecrease'), 0, 4.75, 2000, '-');  // Counts up to -4.75%
+        };
+    </script>
 </body>
 </html>
