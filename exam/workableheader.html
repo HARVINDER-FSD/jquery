@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Responsive Header</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background: #007BFF;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            position: relative;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        nav {
+            display: flex;
+            position: relative;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #f0f4f8;
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #0056b3;
+            border-radius: 5px;
+            z-index: 10;
+        }
+        .dropdown li {
+            margin: 0;
+            width: 150px; /* Adjust as needed */
+        }
+        .dropdown li a {
+            display: block;
+            padding: 10px;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+                width: 100%;
+            }
+            nav.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background: #007BFF;
+                width: 100%;
+                transition: max-height 0.3s ease-out;
+                overflow: hidden;
+            }
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+            nav ul li {
+                margin: 10px 0;
+                text-align: center;
+            }
+            .menu-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">MyLogo</div>
+    <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li>
+                <a href="#services">Services</a>
+                <ul class="dropdown">
+                    <li><a href="#web-design">Web Design</a></li>
+                    <li><a href="#seo">SEO</a></li>
+                    <li><a href="#marketing">Marketing</a></li>
+                </ul>
+            </li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Toggle the menu on small screens
+        $('.menu-toggle').click(function() {
+            $('nav').toggleClass('active');
+        });
+
+        // Show dropdown on hover
+        $('nav ul li').hover(function() {
+            $(this).find('.dropdown').stop(true, true).slideDown(200);
+        }, function() {
+            $(this).find('.dropdown').stop(true, true).slideUp(200);
+        });
+    });
+</script>
+
+</body>
+</html>

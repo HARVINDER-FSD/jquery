@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic FAQ Accordion</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #eef2f3; /* Soft background color */
+}
+
+.faq-container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Prevents overflow of borders */
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: #333; /* Darker text color */
+}
+
+.faq-item {
+    border-bottom: 1px solid #ddd;
+}
+
+.faq-title {
+    padding: 15px 20px;
+    cursor: pointer;
+    background: #007BFF; /* Bootstrap primary color */
+    color: white; /* White text for contrast */
+    font-weight: bold;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.faq-title:hover {
+    background: #0056b3; /* Darker blue on hover */
+    transform: scale(1.02); /* Slight scale effect */
+}
+
+.faq-content {
+    display: none;
+    padding: 15px 20px;
+    background: #f1f1f1; /* Light gray background for content */
+    color: #555; /* Darker text for better readability */
+    border-top: 1px solid #ddd; /* Divider between title and content */
+}
+
+@media (max-width: 600px) {
+    .faq-title {
+        font-size: 18px; /* Responsive font size */
+    }
+
+    .faq-content {
+        font-size: 16px; /* Responsive font size */
+    }
+}
+
+</style>
+<body>
+
+<div class="faq-container">
+    <h1>Frequently Asked Questions</h1>
+    <div class="faq-item">
+        <div class="faq-title">What is your return policy?</div>
+        <div class="faq-content">Our return policy allows returns within 30 days of purchase. Items must be unused and in original packaging.</div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-title">How do I track my order?</div>
+        <div class="faq-content">You can track your order using the tracking link provided in your confirmation email.</div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-title">What payment methods do you accept?</div>
+        <div class="faq-content">We accept various payment methods, including credit cards, PayPal, and Apple Pay.</div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-title">Can I change my order?</div>
+        <div class="faq-content">You can change your order within 1 hour of placing it. After that, it will be processed for shipping.</div>
+    </div>
+</div>
+
+<script>
+document.querySelectorAll('.faq-title').forEach(item => {
+    item.addEventListener('click', () => {
+        const content = item.nextElementSibling;
+        const isOpen = content.style.display === 'block';
+
+        // Close all other FAQ contents
+        document.querySelectorAll('.faq-content').forEach(c => c.style.display = 'none');
+
+        // Toggle the clicked FAQ content
+        content.style.display = isOpen ? 'none' : 'block';
+    });
+});
+
+</script>
+</body>
+</html>
