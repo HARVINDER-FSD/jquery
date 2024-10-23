@@ -1,175 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <style>
-      :root {
-      --dark-green: #9cc675;
-      --dark-yellow: #e89a3d;
-      --extra-light-brown:#fdf0d7;
-      --light-brown: #ecd5ab;
-      --dark-brown:#915b40;
-    }
-
-
-
-    body {
-      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-      font-size: 14px;
-      color:#000;
-      margin: 0;
-      padding: 0;
-       height: 100vh;
-      background: var(--light-brown)
-    }
-    .swiper-container {
-      width: 100%;
-      height: 100%;
-      
-    }
-
-
-.swiper-full-mobile {
-    position: relative;
-    margin: 50px auto;
-    padding-bottom: 50px;
-}
-
-.swiper-full-mobile:befores {
-    content: "";
-    width: 265px;
-    background: url(http://md-aqil.github.io/images/Pixel-3-XL.png);
-    background-size: 100%;
-    background-repeat: no-repeat;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0px;
-    height: 565px;
-    z-index: 2;
-    margin: auto;
-}
-.swiper-full-mobile .swiper-slide {
-  height: 100%;
-}
-.swiper-full-mobile .swiper-slide img{
-  width: 100%;
-  height: 530px;
-  object-fit: cover;
-
-}
-.swiper-slide.swiper-slide-active img {
-  border-radius: 00px;
-
-}
-
-    </style>
-    <title>Swiper Slider</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
+<STyle>
+  /* Our Classes Section Styling */
+.our-classes-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #ff6f61, #ffcc00); /* Bright gradient background */
+    color: white;
+    text-align: center;
+}
+
+.our-classes-section h2 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.our-classes-section .section-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    color: #f5f5f5;
+}
+
+/* Grid Layout for Classes */
+.classes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-items: center;
+}
+
+/* Class Card Styling */
+.class-card {
+    position: relative;
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.class-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Image Styling */
+.class-image img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    transition: opacity 0.4s ease;
+}
+
+.class-card:hover .class-image img {
+    opacity: 0.85; /* Fades the image on hover for effect */
+}
+
+/* Class Info Overlay */
+.class-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+}
+
+.class-card:hover .class-info {
+    transform: translateY(0); /* Brings the class info up on hover */
+}
+
+.class-info h4 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #ffcc00;
+}
+
+.class-info p {
+    font-size: 1.2rem;
+    color: #f1f1f1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .classes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .class-image img {
+        height: 250px;
+    }
+}
+
+</STyle>
 <body>
+  <section id="our-classes" class="our-classes-section">
+    <div class="container">
+        <h2 data-aos="fade-right">Our Classes</h2>
+        <p class="section-subtitle" data-aos="fade-up">Discover the wide range of dance classes we offer for all ages and skill levels.</p>
 
-    <section>
-        <center>
-          <h1 style="font-size: 36px;">Heading Should be  Here</h1>
-          <p style="font-size: 18px;font-weight: 300">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, dolorum.</p>
-          
-        </center>
-        <div class="swiper-container swiper-full-mobile swiper-container-initialized swiper-container-horizontal">
-           <div class="swiper-wrapper" >
-  
-             <div class="swiper-slide">
-              <img src="http://md-aqil.github.io/images/adolescent-beautiful-beauty-247878.jpg" alt="">
-             </div>
-              <div class="swiper-slide">
-              <img src="http://md-aqil.github.io/images/beautiful-beauty-face-2657838.jpg" alt="">
-             </div>
-              <div class="swiper-slide">
-              <img src="http://md-aqil.github.io/images/bikini-body-female-881583.jpg" alt="">
-             </div>
-             <div class="swiper-slide">
-              <img src="http://md-aqil.github.io/images/attractive-beautiful-beauty-1986684.jpg" alt="">
-             </div>
-             <div class="swiper-slide">
-              <img src="http://md-aqil.github.io/images/abstract-expressionism-abstract-painting-acrylic-1690351.jpg" alt="">
-             </div>
-         
-            <div class="swiper-slide">
-              <img src="http://md-aqil.github.io/images/beautiful-bikini-daylight-745767.jpg" alt="">
-             </div>
-            <div class="swiper-slide">
-              <img src="http://md-aqil.github.io/images/adult-beautiful-bikini-1308228.jpg" alt="">
-             </div>
-            <div class="swiper-slide">
-              <img src="http://md-aqil.github.io/images/afro-afro-hair-attractive-2603391.jpg" alt="">
+        <div class="classes-grid" data-aos="fade-up" data-aos-delay="100">
+            <!-- Class 1 -->
+            <div class="class-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="class-image">
+                    <img src="./img/hip-hop.jpg" alt="Western Dance">
+                </div>
+                <div class="class-info">
+                    <h4>Western</h4>
+                    <p>Get your groove on with energetic Western dance styles.</p>
+                </div>
             </div>
-  
-       </div>
-  
-         <!-- Add Pagination -->
-         <div class="swiper-pagination"></div>
-         <!-- Add Arrows -->
-         <div class="swiper-button-next"></div>
-         <div class="swiper-button-prev"></div>
-  </section>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script>
-    var swiperMobile = new Swiper('.swiper-container.swiper-full-mobile', {
-      slidesPerView: 4,
-      spaceBetween: 0,
-      slideToClickedSlide:true,
-      centeredSlides:true,
-     pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-
-      },
-effect: "coverflow",
-      grabCursor: true,
-     
-      coverflowEffect: {
-        rotate: -10,
-        stretch: 10,
-        depth: 100,
-        modifier: 1,
-        slideShadows: true,
-      },
-   
-      loop:true,
-      //   autoplay: {
-      //     delay: 100000,
-      //   },
-
-
-        keyboard: {
-        enabled: true,
-        onlyInViewport: true,
-      },
-
-
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-
-
-       breakpoints: {
-            
-            640: {
-              freemode:true,
-              slidesPerView: 3,
-              spaceBetween: 20,
-            },
-            320: {
-              freemode:true,
-              slidesPerView: 3,
-              spaceBetween: 20,
-            }
-      }
-
-    });
-</script>
+            <!-- Class 2 -->
+            <div class="class-card" data-aos="zoom-in" data-aos-delay="300">
+                <div class="class-image">
+                    <img src="./img/bollywood.webp" alt="Bollywood Dance">
+                </div>
+                <div class="class-info">
+                    <h4>Bollywood</h4>
+                    <p>Immerse yourself in the vibrant moves of Bollywood dance.</p>
+                </div>
+            </div>
+            <!-- Class 3 -->
+            <div class="class-card" data-aos="zoom-in" data-aos-delay="400">
+                <div class="class-image">
+                    <img src="./img/classical-dance.jpg" alt="Classical Dance">
+                </div>
+                <div class="class-info">
+                    <h4>Classical</h4>
+                    <p>Explore the grace and beauty of Classical dance forms.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 </body>
 </html>
