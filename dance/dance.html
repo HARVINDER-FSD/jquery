@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <STYle>
+  /* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+    position: relative;
+    margin: 10% auto;
+    padding: 0;
+    width: 60%;
+    background-color: white;
+}
+
+.modal-content video {
+    width: 100%;
+    height: auto;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.video-container {
+    width: 100%;
+    height: auto;
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+}
+
+
+    </STYle>
+</head>
+<body>
+    <div class="container">
+        <div class="video-section">
+            <div class="video-thumbnail" id="thumbnail">
+                <img src="your-video-thumbnail.jpg" alt="Dance Video Thumbnail">
+                <div class="play-button">
+                    <a href="#" id="playButton"><i class="fas fa-play"></i></a>
+                </div>
+            </div>
+            <div id="videoContainer" class="video-container" style="display: none;">
+                <video id="danceVideo" controls>
+                    <source src="your-video-file.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+        <div class="text-section">
+            <h2>Never miss a<br><span>Chance to Dance</span></h2>
+        </div>
+    </div>
+<script>
+    // Get elements
+var modal = document.getElementById("videoModal");
+var btn = document.getElementById("playButton");
+var span = document.getElementsByClassName("close")[0];
+var video = document.getElementById("danceVideo");
+
+// When the user clicks on the play button, open the modal and play the video
+btn.onclick = function(e) {
+    e.preventDefault(); // prevent default anchor behavior
+    modal.style.display = "block";
+    video.play();
+}
+
+// When the user clicks on the close button, close the modal and stop the video
+span.onclick = function() {
+    modal.style.display = "none";
+    video.pause();
+    video.currentTime = 0; // reset video to beginning
+}
+
+// When the user clicks outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+        video.pause();
+        video.currentTime = 0;
+    }
+}
+
+</script>    
+    
+    
+</body>
+</html>

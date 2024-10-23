@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unique Dance Studio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Link Swiper's CSS -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<!-- Link Swiper's JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <h1>Dance Studio</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#classes">Classes</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </nav>
+
+    <section id="hero-slider" class="hero-section">
+        <div class="slider-wrapper">
+          <!-- Slide 1 -->
+          <div class="slide" style="background-image: url('./img/thumb.jpg');">
+            <div class="overlay"></div>
+            <div class="slide-content">
+              <h1 class="slide-title">Join the Beat</h1>
+              <p class="slide-text">Master the art of dance with us!</p>
+              <a href="#our-classes" class="btn-hero">Start Dancing</a>
+            </div>
+          </div>
+          <!-- Slide 2 -->
+          <div class="slide" style="background-image: url('./img/thumb2.jpg');">
+            <div class="overlay"></div>
+            <div class="slide-content">
+              <h1 class="slide-title">Feel the Rhythm</h1>
+              <p class="slide-text">Unlock your potential with every move!</p>
+              <a href="#our-classes" class="btn-hero">Join Today</a>
+            </div>
+          </div>
+          <!-- Slide 3 -->
+          <div class="slide" style="background-image: url('./img/thumb3.jpg');">
+            <div class="overlay"></div>
+            <div class="slide-content">
+              <h1 class="slide-title">Dance to the Future</h1>
+              <p class="slide-text">Grow your passion, one step at a time!</p>
+              <a href="#our-classes" class="btn-hero">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <!-- Slider Navigation -->
+        <div class="slider-nav">
+          <button class="prev-btn">&#10094;</button>
+          <button class="next-btn">&#10095;</button>
+        </div>
+      </section>
+      
+      
+
+    <!-- Animated Counter Section -->
+    <section id="stats" class="stats-section">
+        <div class="container">
+            <h2>Our Achievements</h2>
+            <div class="counter-grid">
+                <div class="counter-item">
+                    <span class="counter" data-target="500">0</span>
+                    <p>Students Taught</p>
+                </div>
+                <div class="counter-item">
+                    <span class="counter" data-target="50">0</span>
+                    <p>Professional Instructors</p>
+                </div>
+                <div class="counter-item">
+                    <span class="counter" data-target="300">0</span>
+                    <p>Classes Every Year</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Classes Section with Scroll Animations -->
+    <section id="our-classes" class="our-classes-section">
+        <div class="container">
+            <h2 data-aos="fade-right">Our Classes</h2>
+            <p class="section-subtitle" data-aos="fade-up">Explore the variety of dance classes we offer, suitable for all ages and skill levels.</p>
+    
+            <div class="classes-container" data-aos="fade-up" data-aos-delay="100">
+                <div class="class-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="class-image">
+                        <img src="images/class-1.jpg" alt="Hip Hop Dance">
+                    </div>
+                    <div class="class-info">
+                        <h4>Hip Hop</h4>
+                        <p>Groove to the beat with our energetic and fun Hip Hop classes.</p>
+                    </div>
+                </div>
+    
+                <div class="class-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="class-image">
+                        <img src="images/class-2.jpg" alt="Ballet Dance">
+                    </div>
+                    <div class="class-info">
+                        <h4>Ballet</h4>
+                        <p>Refine your technique and grace with our classical Ballet lessons.</p>
+                    </div>
+                </div>
+    
+                <div class="class-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="class-image">
+                        <img src="images/class-3.jpg" alt="Contemporary Dance">
+                    </div>
+                    <div class="class-info">
+                        <h4>Contemporary</h4>
+                        <p>Express yourself through fluid movements with our Contemporary dance classes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- package -->
+    <section >
+        <div class="pricing-section" data-aos="fade-up">
+            <div class="overlay2">
+                <div class="header" data-aos="fade-down" data-aos-duration="1500">
+                    <h2>We make you dance. Want to?</h2>
+                    <p>WE WRITE</p>
+                </div>
+    
+                <div class="pricing-plans">
+                    <div class="pricing-card" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="100">
+                        <h3>2 CLASS A WEEK</h3>
+                        <p>Billed annually or $10 monthly</p>
+                        <h2>$100 <span>/ Year</span></h2>
+                        <ul>
+                            <li>✔ 1 Person</li>
+                            <li>✔ 1 Trainer</li>
+                            <li>✔ 1 Course</li>
+                            <li>✔ Custom Timing</li>
+                        </ul>
+                        <button>ENROLL NOW</button>
+                    </div>
+    
+                    <div class="pricing-card" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="200">
+                        <h3>3 CLASS A WEEK</h3>
+                        <p>Billed annually or $15 monthly</p>
+                        <h2>$150 <span>/ Year</span></h2>
+                        <ul>
+                            <li>✔ 1 Person</li>
+                            <li>✔ 1 Trainer</li>
+                            <li>✔ 1 Course</li>
+                            <li>✔ Custom Timing</li>
+                        </ul>
+                        <button>ENROLL NOW</button>
+                    </div>
+    
+                    <div class="pricing-card" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="300">
+                        <h3>4 CLASS A WEEK</h3>
+                        <p>Billed annually or $20 monthly</p>
+                        <h2>$200 <span>/ Year</span></h2>
+                        <ul>
+                            <li>✔ 1 Person</li>
+                            <li>✔ 1 Trainer</li>
+                            <li>✔ 1 Course</li>
+                            <li>✔ Custom Timing</li>
+                        </ul>
+                        <button>ENROLL NOW</button>
+                    </div>
+    
+                    <div class="pricing-card" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="400">
+                        <h3>5 CLASS A WEEK</h3>
+                        <p>Billed annually or $30 monthly</p>
+                        <h2>$250 <span>/ Year</span></h2>
+                        <ul>
+                            <li>✔ 1 Person</li>
+                            <li>✔ 1 Trainer</li>
+                            <li>✔ 1 Course</li>
+                            <li>✔ Custom Timing</li>
+                            <li>✔ Special Auditions</li>
+                        </ul>
+                        <button>ENROLL NOW</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+    </section>
+    <!-- style -->
+<section>
+    <div class="dance-styles">
+        <div class="style-item">
+            <img src="./img/icon1.jpg" alt="Salsa Dance">
+            <h2>50</h2>
+            <p>Salsa is a very popular genre of dance from the Caribbean with salsa music.</p>
+        </div>
+        <div class="style-item">
+            <img src="./img/icon2.jpg" alt="Hip Hop Dance">
+            <h2>1920</h2>
+            <p>Hip hop is a style of popular music featuring rap with an electronic backing.</p>
+        </div>
+        <div class="style-item">
+            <img src="./img/icon3.jpg" alt="Tap Dance">
+            <h2>2331</h2>
+            <p>Tap dance is a genre of dance using the sounds of tap shoes striking the floor.</p>
+        </div>
+        <div class="style-item">
+            <img src="./img/icon4.jpg" alt="Ballet Dance">
+            <h2>1122</h2>
+            <p>Ballet dancing is for getting into shape, improve flexibility and have fun!</p>
+        </div>
+    </div>
+</section>
+    <!-- Gallery Section -->
+    <section id="journey" class="journey-section section-bg-primary">
+        <div class="container">
+            <h2 data-aos="fade-right">Our Dance Journey</h2>
+            <div class="timeline">
+                <!-- Milestone 1 -->
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-content">
+                        <div class="timeline-date">
+                            <h3>2015</h3>
+                            <p>Founded</p>
+                        </div>
+                        <div class="timeline-description">
+                            <p>Our studio was founded with a vision to nurture and showcase local talent. Since then, we've grown into a thriving dance community.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-img">
+                        <img src="images/performance1.jpg" alt="Founding of the Studio" />
+                    </div>
+                </div>
+    
+                <!-- Milestone 2 -->
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="timeline-img">
+                        <img src="images/performance2.jpg" alt="First Major Performance" />
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">
+                            <h3>2017</h3>
+                            <p>First Major Performance</p>
+                        </div>
+                        <div class="timeline-description">
+                            <p>We staged our first major performance, a fusion of contemporary and classical dance, which captivated a packed audience.</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Milestone 3 -->
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="timeline-content">
+                        <div class="timeline-date">
+                            <h3>2019</h3>
+                            <p>International Dance Tour</p>
+                        </div>
+                        <div class="timeline-description">
+                            <p>Our dancers took the stage internationally, representing our studio and the art of dance on a global platform.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-img">
+                        <img src="images/performance3.jpg" alt="International Tour" />
+                    </div>
+                </div>
+    
+                <!-- Milestone 4 -->
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="timeline-img">
+                        <img src="images/performance4.jpg" alt="Recent Performance" />
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">
+                            <h3>2023</h3>
+                            <p>Latest Production</p>
+                        </div>
+                        <div class="timeline-description">
+                            <p>Our latest production was a culmination of years of practice, passion, and creativity, leaving the audience in awe.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+
+    <!-- FAQ Section with Accordion -->
+    <section id="faq" class="faq-section section-bg-neutral">
+        <div class="container">
+            <h2 data-aos="fade-right">Frequently Asked Questions</h2>
+            <div class="accordion">
+                <!-- Accordion Item 1 -->
+                <div class="accordion-item" data-aos="fade-up">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>What should I wear?</span>
+                        <i class="icon">+</i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Comfortable clothing and dance shoes suitable for your class. We also recommend bringing water and a towel to stay hydrated.</p>
+                    </div>
+                </div>
+    
+                <!-- Accordion Item 2 -->
+                <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Do I need prior dance experience?</span>
+                        <i class="icon">+</i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>No, our classes are designed for all skill levels. Beginners are always welcome!</p>
+                    </div>
+                </div>
+    
+                <!-- Accordion Item 3 -->
+                <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>How do I sign up for a class?</span>
+                        <i class="icon">+</i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>You can sign up directly through our website or visit our studio in person to register for classes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section section-bg-secondary">
+        <div class="container">
+            <h2 data-aos="fade-right">Get in Touch</h2>
+            <p class="section-subtitle" data-aos="fade-up">We’d love to hear from you! Whether you have questions or want to join us, feel free to reach out.</p>
+    
+            <div class="contact-container">
+                <!-- Contact Information -->
+                <div class="contact-info" data-aos="fade-up">
+                    <div class="contact-detail">
+                        <i class="fas fa-phone-alt"></i>
+                        <h4>Call Us</h4>
+                        <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <h4>Email</h4>
+                        <p><a href="mailto:info@dancestudio.com">info@dancestudio.com</a></p>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Visit Us</h4>
+                        <p>123 Dance Street, City, Country</p>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Map and Form Container (50/50 split) -->
+            <div class="map-form-container" data-aos="fade-up" data-aos-delay="100">
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send Message</button>
+                    </form>
+                </div>
+    
+                <!-- Embedded Map -->
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Dance Studio. All Rights Reserved.</p>
+    </footer>
+    <script>
+        AOS.init({
+            duration: 1000, // Animation duration in milliseconds
+            once: true      // Whether animation should happen only once
+        });
+    </script>
+</body>
+</html>
