@@ -3,113 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <STYle>
-  /* Modal Styling */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.8);
-}
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <style>
+      :root {
+      --dark-green: #9cc675;
+      --dark-yellow: #e89a3d;
+      --extra-light-brown:#fdf0d7;
+      --light-brown: #ecd5ab;
+      --dark-brown:#915b40;
+    }
 
-.modal-content {
+
+
+    body {
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color:#000;
+      margin: 0;
+      padding: 0;
+       height: 100vh;
+      background: var(--light-brown)
+    }
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+      
+    }
+
+
+.swiper-full-mobile {
     position: relative;
-    margin: 10% auto;
-    padding: 0;
-    width: 60%;
-    background-color: white;
+    margin: 50px auto;
+    padding-bottom: 50px;
 }
 
-.modal-content video {
-    width: 100%;
-    height: auto;
-}
-
-.close {
+.swiper-full-mobile:befores {
+    content: "";
+    width: 265px;
+    background: url(http://md-aqil.github.io/images/Pixel-3-XL.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
     position: absolute;
-    top: 10px;
-    right: 20px;
-    color: #aaa;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
+    left: 0;
+    right: 0;
+    top: 0px;
+    height: 565px;
+    z-index: 2;
+    margin: auto;
+}
+.swiper-full-mobile .swiper-slide {
+  height: 100%;
+}
+.swiper-full-mobile .swiper-slide img{
+  width: 100%;
+  height: 530px;
+  object-fit: cover;
+
+}
+.swiper-slide.swiper-slide-active img {
+  border-radius: 00px;
+
 }
 
-.close:hover, .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-.video-container {
-    width: 100%;
-    height: auto;
-}
-
-.video-container video {
-    width: 100%;
-    height: auto;
-}
-
-
-    </STYle>
+    </style>
+    <title>Swiper Slider</title>
 </head>
 <body>
-    <div class="container">
-        <div class="video-section">
-            <div class="video-thumbnail" id="thumbnail">
-                <img src="your-video-thumbnail.jpg" alt="Dance Video Thumbnail">
-                <div class="play-button">
-                    <a href="#" id="playButton"><i class="fas fa-play"></i></a>
-                </div>
+
+    <section>
+        <center>
+          <h1 style="font-size: 36px;">Heading Should be  Here</h1>
+          <p style="font-size: 18px;font-weight: 300">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, dolorum.</p>
+          
+        </center>
+        <div class="swiper-container swiper-full-mobile swiper-container-initialized swiper-container-horizontal">
+           <div class="swiper-wrapper" >
+  
+             <div class="swiper-slide">
+              <img src="http://md-aqil.github.io/images/adolescent-beautiful-beauty-247878.jpg" alt="">
+             </div>
+              <div class="swiper-slide">
+              <img src="http://md-aqil.github.io/images/beautiful-beauty-face-2657838.jpg" alt="">
+             </div>
+              <div class="swiper-slide">
+              <img src="http://md-aqil.github.io/images/bikini-body-female-881583.jpg" alt="">
+             </div>
+             <div class="swiper-slide">
+              <img src="http://md-aqil.github.io/images/attractive-beautiful-beauty-1986684.jpg" alt="">
+             </div>
+             <div class="swiper-slide">
+              <img src="http://md-aqil.github.io/images/abstract-expressionism-abstract-painting-acrylic-1690351.jpg" alt="">
+             </div>
+         
+            <div class="swiper-slide">
+              <img src="http://md-aqil.github.io/images/beautiful-bikini-daylight-745767.jpg" alt="">
+             </div>
+            <div class="swiper-slide">
+              <img src="http://md-aqil.github.io/images/adult-beautiful-bikini-1308228.jpg" alt="">
+             </div>
+            <div class="swiper-slide">
+              <img src="http://md-aqil.github.io/images/afro-afro-hair-attractive-2603391.jpg" alt="">
             </div>
-            <div id="videoContainer" class="video-container" style="display: none;">
-                <video id="danceVideo" controls>
-                    <source src="your-video-file.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-        </div>
-        <div class="text-section">
-            <h2>Never miss a<br><span>Chance to Dance</span></h2>
-        </div>
-    </div>
+  
+       </div>
+  
+         <!-- Add Pagination -->
+         <div class="swiper-pagination"></div>
+         <!-- Add Arrows -->
+         <div class="swiper-button-next"></div>
+         <div class="swiper-button-prev"></div>
+  </section>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
-    // Get elements
-var modal = document.getElementById("videoModal");
-var btn = document.getElementById("playButton");
-var span = document.getElementsByClassName("close")[0];
-var video = document.getElementById("danceVideo");
+    var swiperMobile = new Swiper('.swiper-container.swiper-full-mobile', {
+      slidesPerView: 4,
+      spaceBetween: 0,
+      slideToClickedSlide:true,
+      centeredSlides:true,
+     pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
 
-// When the user clicks on the play button, open the modal and play the video
-btn.onclick = function(e) {
-    e.preventDefault(); // prevent default anchor behavior
-    modal.style.display = "block";
-    video.play();
-}
+      },
+effect: "coverflow",
+      grabCursor: true,
+     
+      coverflowEffect: {
+        rotate: -10,
+        stretch: 10,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
+      },
+   
+      loop:true,
+      //   autoplay: {
+      //     delay: 100000,
+      //   },
 
-// When the user clicks on the close button, close the modal and stop the video
-span.onclick = function() {
-    modal.style.display = "none";
-    video.pause();
-    video.currentTime = 0; // reset video to beginning
-}
 
-// When the user clicks outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-        video.pause();
-        video.currentTime = 0;
-    }
-}
+        keyboard: {
+        enabled: true,
+        onlyInViewport: true,
+      },
 
-</script>    
-    
-    
+
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+
+
+       breakpoints: {
+            
+            640: {
+              freemode:true,
+              slidesPerView: 3,
+              spaceBetween: 20,
+            },
+            320: {
+              freemode:true,
+              slidesPerView: 3,
+              spaceBetween: 20,
+            }
+      }
+
+    });
+</script>
+
 </body>
 </html>

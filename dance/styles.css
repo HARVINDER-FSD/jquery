@@ -16,10 +16,10 @@ nav {
   
     top: 0;
     width: 100%;
-    background-color: rgba(51, 51, 51, 0.8);
+    background-color: black;
     display: flex;
     justify-content: space-between;
-    padding: 1rem 2rem;
+    padding: 1rem 2rem;    
     z-index: 1000;
 }
 
@@ -30,6 +30,7 @@ nav h1 {
 .nav-links {
     list-style: none;
     display: flex;
+   align-items: center;
 }
 
 .nav-links li {
@@ -180,22 +181,22 @@ nav h1 {
    /* background: url(./img/pngtree-dancing.jpg) center center ;
    background-size: cover;
    background-repeat: no-repeat; */
-   background-color: yellow;
-    color: #333;
+   background-color: rgba(0, 0, 0, 0.788);
+    color: white;
 }
 
 .our-classes-section h2 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: #00796b;
+    color: white;
 }
 
 .our-classes-section .section-subtitle {
     text-align: center;
     font-size: 1.2rem;
     margin-bottom: 40px;
-    color: #777;
+    color: wheat;
 }
 /* style */
 .dance-styles {
@@ -246,10 +247,12 @@ nav h1 {
 
 /* Classes Container */
 .classes-container {
-    display: flex;
+      display: flex;
     justify-content: space-between;
-    gap: 30px;
+    gap: 20px;
     flex-wrap: wrap;
+    width: 1338px;
+    margin: 0 auto;
 }
 
 /* Class Card Styling */
@@ -260,6 +263,7 @@ nav h1 {
     overflow: hidden;
     flex: 1;
     max-width: 30%;
+   
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -272,7 +276,7 @@ nav h1 {
 /* Class Image */
 .class-card .class-image img {
     width: 100%;
-    height: auto;
+    /* height: auto; */
     border-bottom: 5px solid #009688;
     transition: filter 0.3s ease;
 }
@@ -340,19 +344,15 @@ nav h1 {
     background-repeat: no-repeat;
     background-attachment: fixed; 
     position: relative;
-     /* Set a height for the section */
 }
-/* .pricing-section {
-    position: relative;
-    height: 100vh; /* Full height */
-    /* overflow: hidden; Hide overflow */
-/* } */ 
+
+
 
 
     .overlay2 {
-        background-color: rgba(255, 0, 102, 0.7);
+        background-color: rgba(10, 9, 10, 0.842);
         /* Matching pink overlay */
-        padding: 60px 0;
+        padding: 160px 0;
         text-align: center;
     }
 
@@ -376,6 +376,7 @@ nav h1 {
         display: flex;
         justify-content: center;
         align-items: stretch;
+        gap: 20px;
     }
 
     .pricing-card {
@@ -528,114 +529,65 @@ nav h1 {
 }
 
 /* Gallery */
-/* Section Styling */
-.journey-section {
-    padding: 50px 0;
-    /* background: url(./img/abstract.jpg); */
-    background-color: #eea808;
-    color: #333;
-}
+:root {
+    --dark-green: #9cc675;
+    --dark-yellow: #e89a3d;
+    --extra-light-brown:#fdf0d7;
+    --light-brown: #ecd5ab;
+    --dark-brown:#915b40;
+  }
 
-.journey-section h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 50px;
-    color:black;
-}
 
-/* Timeline Styling */
-.timeline {
-    position: relative;
+
+  .swiping{
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color:#000;
+    margin: 0;
     padding: 0;
-    margin: 0;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background-color: #009688;
-    left: 50%;
-    margin-left: -2px;
-}
-
-.timeline-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 50px;
-    position: relative;
-}
-
-.timeline-item:nth-child(even) .timeline-content {
-    order: 2;
-}
-
-.timeline-item:nth-child(even) .timeline-img {
-    order: 1;
-}
-
-.timeline-img {
-    flex: 1;
-    padding: 0 20px;
-}
-
-.timeline-img img {
+     height: 80vh;
+    background: var(--light-brown)
+  }
+  .swiper-container {
     width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    
+  }
+
+
+.swiper-full-mobile {
+  position: relative;
+  margin: 50px auto;
+  padding-bottom: 50px;
 }
 
-.timeline-content {
-    flex: 1;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+.swiper-full-mobile:befores {
+  content: "";
+  width: 265px;
+  background: url(http://md-aqil.github.io/images/Pixel-3-XL.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0px;
+  height: 565px;
+  z-index: 2;
+  margin: auto;
 }
-
-.timeline-content:hover {
-    transform: translateY(-10px);
+.swiper-full-mobile .swiper-slide {
+height: 85%;
 }
+.swiper-full-mobile .swiper-slide img{
+width: 100%;
+height: 530px;
+object-fit: cover;
 
-.timeline-date {
-    text-align: center;
-    background-color: #009688;
-    padding: 15px;
-    border-radius: 10px;
-    color: white;
-    margin-bottom: 10px;
 }
+.swiper-slide.swiper-slide-active img {
+border-radius: 00px;
 
-.timeline-date h3 {
-    font-size: 2rem;
-    margin: 0;
 }
-
-.timeline-description {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #555;
-}
-
-/* Adjustments for Mobile */
-@media (max-width: 768px) {
-    .timeline-item {
-        flex-direction: column;
-    }
-    .timeline::before {
-        left: 10px;
-    }
-    .timeline-item:nth-child(even) .timeline-content,
-    .timeline-item:nth-child(even) .timeline-img {
-        order: initial;
-    }
-}
-
-/* Section Styling */
 /* Section Styling */
 .contact-section {
     padding: 60px 0;
