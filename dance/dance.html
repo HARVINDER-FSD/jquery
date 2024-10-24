@@ -1,149 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Dance Class Website</title>
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/michalsnik/aos/2.3.1/dist/aos.css">
+    <style>
+        /* Your existing CSS styles */
+        .dance-styles {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .style-item {
+            width: 20%;
+            padding: 20px;
+        }
+
+        .style-item img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
+        }
+
+        .style-item h2 {
+            font-size: 36px;
+            color: #000;
+            margin-bottom: 10px;
+        }
+
+        .style-item p {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .style-item h2 {
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .style-item h2::after {
+            content: "";
+            width: 50px;
+            height: 2px;
+            background-color: #7209b7;
+            display: block;
+            margin: 0 auto;
+        }
+        #container {
+  height: 200px;
+}
+
+img {
+  background: white;
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  margin-top: 50px;
+  cursor: pointer;
+  -webkit-animation: float-down 1s infinite alternate;
+  -moz-animation: float-down 1s infinite alternate;
+  -ms-animation: float-down 1s infinite alternate;
+  animation: float-down 1s infinite alternate;
+}
+
+.arrow svg {
+  width: 25px;
+  margin-top: 11px;
+  margin-left: 10px;
+  fill: #fff;
+}
+
+/* Arrow animations */
+@keyframes float-down {
+  0% {
+      transform: translate3d(0,0px,0);
+ }
+  100% {
+      transform: translate3d(0,-5px,0);
+ }
+}
+    </style>
 </head>
-<STyle>
-  /* Our Classes Section Styling */
-.our-classes-section {
-    padding: 80px 0;
-    background: linear-gradient(135deg, #ff6f61, #ffcc00); /* Bright gradient background */
-    color: white;
-    text-align: center;
-}
-
-.our-classes-section h2 {
-    font-size: 3.5rem;
-    margin-bottom: 15px;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.our-classes-section .section-subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 40px;
-    color: #f5f5f5;
-}
-
-/* Grid Layout for Classes */
-.classes-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    justify-items: center;
-}
-
-/* Class Card Styling */
-.class-card {
-    position: relative;
-    width: 100%;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.class-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
-}
-
-/* Image Styling */
-.class-image img {
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
-    transition: opacity 0.4s ease;
-}
-
-.class-card:hover .class-image img {
-    opacity: 0.85; /* Fades the image on hover for effect */
-}
-
-/* Class Info Overlay */
-.class-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    text-align: center;
-    transform: translateY(100%);
-    transition: transform 0.4s ease;
-}
-
-.class-card:hover .class-info {
-    transform: translateY(0); /* Brings the class info up on hover */
-}
-
-.class-info h4 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-    color: #ffcc00;
-}
-
-.class-info p {
-    font-size: 1.2rem;
-    color: #f1f1f1;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .classes-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .class-image img {
-        height: 250px;
-    }
-}
-
-</STyle>
 <body>
-  <section id="our-classes" class="our-classes-section">
-    <div class="container">
-        <h2 data-aos="fade-right">Our Classes</h2>
-        <p class="section-subtitle" data-aos="fade-up">Discover the wide range of dance classes we offer for all ages and skill levels.</p>
-
-        <div class="classes-grid" data-aos="fade-up" data-aos-delay="100">
-            <!-- Class 1 -->
-            <div class="class-card" data-aos="zoom-in" data-aos-delay="200">
-                <div class="class-image">
-                    <img src="./img/hip-hop.jpg" alt="Western Dance">
-                </div>
-                <div class="class-info">
-                    <h4>Western</h4>
-                    <p>Get your groove on with energetic Western dance styles.</p>
-                </div>
-            </div>
-            <!-- Class 2 -->
-            <div class="class-card" data-aos="zoom-in" data-aos-delay="300">
-                <div class="class-image">
-                    <img src="./img/bollywood.webp" alt="Bollywood Dance">
-                </div>
-                <div class="class-info">
-                    <h4>Bollywood</h4>
-                    <p>Immerse yourself in the vibrant moves of Bollywood dance.</p>
-                </div>
-            </div>
-            <!-- Class 3 -->
-            <div class="class-card" data-aos="zoom-in" data-aos-delay="400">
-                <div class="class-image">
-                    <img src="./img/classical-dance.jpg" alt="Classical Dance">
-                </div>
-                <div class="class-info">
-                    <h4>Classical</h4>
-                    <p>Explore the grace and beauty of Classical dance forms.</p>
-                </div>
-            </div>
+    <div id="container">
+        <div id="scrolldown" class="arrow">
+       
+         
+         <div class="dance-styles">
+        <div class="style-item" >
+            <img src="./img/icon1.jpg" alt="Salsa Dance" >
+            <h2>50</h2>
+            <p>Salsa is a very popular genre of dance from the Caribbean with salsa music.</p>
         </div>
-    </div>
-</section>
+        <div class="style-item" >
+            <img src="./img/icon2.jpg" alt="Hip Hop Dance" >
+            <h2>1920</h2>
+            <p>Hip hop is a style of popular music featuring rap with an electronic backing.</p>
+        </div>
+        <div class="style-item" >
+            <img src="./img/icon3.jpg" alt="Tap Dance" >
+            <h2>2331</h2>
+            <p>Tap dance is a genre of dance using the sounds of tap shoes striking the floor.</p>
+        </div>
+        <div class="style-item" >
+            <img src="./img/icon4.jpg" alt="Ballet Dance" >
+            <h2>1122</h2>
+            <p>Ballet dancing is for getting into shape, improve flexibility and have fun!</p>
+        </div>
+    </div>  
+        </div>
+   
 
+    <!-- AOS JS -->
+    <script src="https://cdn.rawgit.com/michalsnik/aos/2.3.1/dist/aos.js"></script>
+   
 </body>
 </html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AOS Test</title>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/michalsnik/aos/2.3.1/dist/aos.css">
+    <style>
+    #container {
+  height: 200px;
+}
+
+img {
+  background: white;
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  margin-top: 50px;
+  cursor: pointer;
+  -webkit-animation: float-down 1s infinite alternate;
+  -moz-animation: float-down 1s infinite alternate;
+  -ms-animation: float-down 1s infinite alternate;
+  animation: float-down 1s infinite alternate;
+}
+
+.arrow svg {
+  width: 25px;
+  margin-top: 11px;
+  margin-left: 10px;
+  fill: #fff;
+}
+
+/* Arrow animations */
+@keyframes float-down {
+  0% {
+      transform: translate3d(0,0px,0);
+ }
+  100% {
+      transform: translate3d(0,-5px,0);
+ }
+}
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="scrolldown" class="arrow">
+        <!--                         <svg x="0px" y="0px" viewBox="0 0 500 500">
+                                    <path d="M111,187.4c-7.6,6.6-7.6,17.3,0,23.9l116.2,101.2c7.6,6.6,19.8,6.6,27.4,0l116.2-101.2 c3.8-3.3,5.7-7.6,5.7-11.9c0-4.3-1.9-8.6-5.7-11.9c-7.6-6.6-19.8-6.6-27.4,0l-102.5,89.3l-102.5-89.3 C130.8,180.9,118.6,180.9,111,187.4z"></path>
+                                </svg> -->
+          <img src="./img/icon1.jpg" alt="Salsa Dance">
+                            </div>
+          
+        </div>
+</body>
+</html>

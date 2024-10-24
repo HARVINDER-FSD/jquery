@@ -272,7 +272,7 @@ nav h1 {
     }
 
     .program-image img {
-        height: 250px;
+        height: 377px;
     }
 }
 
@@ -422,8 +422,6 @@ nav h1 {
         border-left: none;
         /* No border between the cards */
     }
-
-
     .dance-styles {
         display: flex;
         justify-content: space-around;
@@ -431,35 +429,35 @@ nav h1 {
         margin: 40px 0;
         text-align: center;
     }
-    
+
     .style-item {
         width: 20%;
         padding: 20px;
     }
-    
+
     .style-item img {
         width: 80px;
         height: 80px;
         margin-bottom: 15px;
     }
-    
+
     .style-item h2 {
         font-size: 36px;
         color: #000;
         margin-bottom: 10px;
     }
-    
+
     .style-item p {
         color: #666;
         font-size: 16px;
         line-height: 1.5;
     }
-    
+
     .style-item h2 {
         position: relative;
         padding-bottom: 5px;
     }
-    
+
     .style-item h2::after {
         content: "";
         width: 50px;
@@ -468,7 +466,50 @@ nav h1 {
         display: block;
         margin: 0 auto;
     }
+    /* #container15 {
+height: 200px;
+} */
+
+.imgs {
+/* background: white; */
+border-radius: 100%;
+width: 50px;
+height: 50px;
+margin: auto;
+margin-top: 50px;
+cursor: pointer;
+-webkit-animation: float-down 1s infinite alternate;
+-moz-animation: float-down 1s infinite alternate;
+-ms-animation: float-down 1s infinite alternate;
+animation: float-down 1s infinite alternate;
+}
+
+.arrow svg {
+width: 25px;
+margin-top: 11px;
+margin-left: 10px;
+fill: #fff;
+}
+
+/* Arrow animations */
+@keyframes float-down {
+0% {
+  transform: translate3d(0,0px,0);
+}
+100% {
+  transform: translate3d(0,-5px,0);
+}
+}
+
     /* classing */
+    .classing h1{
+        font-size: 50px;
+     text-align: center;
+     padding-top: 20px;
+     text-decoration: underline;
+     text-decoration-color:red;
+     
+    }
     .image-grid {
         display: grid;
         grid-template-columns: repeat(5, 1fr); /* 3 columns */
