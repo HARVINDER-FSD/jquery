@@ -502,33 +502,71 @@ fill: #fff;
 }
 
     /* classing */
-    .classing h1{
+    .classing h1 {
         font-size: 50px;
-     text-align: center;
-     padding-top: 20px;
-     text-decoration: underline;
-     text-decoration-color:red;
-     
+        text-align: center;
+        padding-top: 20px;
+        text-decoration: underline;
+        text-decoration-color: red;
+        color: #333; /* Darker color for better readability */
+        font-family: 'Arial', sans-serif; /* Adding a clean font */
     }
+    
     .image-grid {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr); /* 3 columns */
-        grid-gap: 15px; /* Space between grid items */
-        max-width: 1200px;
-        margin: 0 auto; /* Center the grid */
-        padding: 60px 0px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around; /* Creates space between items */
+        gap: 20px; /* Adds consistent spacing between items */
+        max-width: 1200px; /* Makes the gallery wider */
+        margin: 0 auto;
+        margin-top: 40px;
+        padding: 20px; /* Adds padding around the gallery */
+        overflow: hidden;
     }
     
     .grid-item {
+        flex: 1 1 calc(25% - 20px); /* 4 items per row, adjusts automatically */
+        max-width: calc(25% - 20px); /* Keeps the grid uniform */
         position: relative;
+        overflow: hidden;
+        border-radius: 10px; /* Softer, rounded corners */
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    
+    .grid-item:hover {
+        transform: scale(1.05); /* Adds a subtle zoom effect on hover */
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Adds depth with shadow */
     }
     
     .grid-item img {
         width: 100%;
-        height: auto;
+        height: 100%;
         display: block;
-        border-radius: 5px; /* Optional, for rounded corners */
+        border-radius: 10px; /* Match container's rounded corners */
+        object-fit: cover; /* Ensures the image covers its container */
     }
+    
+    @media (max-width: 1024px) {
+        .grid-item {
+            flex: 1 1 calc(33.33% - 20px); /* 3 items per row on tablets */
+            max-width: calc(33.33% - 20px);
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .grid-item {
+            flex: 1 1 calc(50% - 20px); /* 2 items per row on small screens */
+            max-width: calc(50% - 20px);
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .grid-item {
+            flex: 1 1 100%; /* 1 item per row on extra small screens */
+            max-width: 100%;
+        }
+    }
+    
     
     
 
