@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #21253c;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .wrapper {
+            display: flex;
+            width: 90%;
+            max-width: 1200px;
+            gap: 1%; /* Reduced gap between columns */
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            background: #ffffff;
+            flex-wrap: wrap; /* Allow items to wrap for smaller screens */
+        }
+
+        .column {
+            width: 32%; /* Width for larger screens */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+            margin-bottom: 15px;
+        }
+
+        .item img {
+            width: 100%;
+            height: auto; /* Allow height to adjust based on image */
+            display: block; /* Prevents gap below images */
+            object-fit: cover; /* Cover the container while maintaining aspect ratio */
+            object-position: center; /* Center the image */
+            transition: transform 0.3s ease;
+        }
+
+        .item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Responsive styling */
+        @media (max-width: 1024px) {
+            .column {
+                width: 48%; /* Two columns on medium screens */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .column {
+                width: 100%; /* Full width on smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <h1>Divya Dance Academy</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./gallery.html">Gallery</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </nav>
+
+<div class="wrapper">
+    <div class="column">
+        <div class="item"><img src="./img/WP1.jpeg" alt=""></div>
+        <div class="item"><img src="./img/WP2.jpg" alt=""></div>
+        <div class="item"><img src="./img/WP3.jpeg" alt=""></div>
+        <div class="item"><img src="./img/WP4.jpeg" alt=""></div>
+        <div class="item"><img src="./img/WP5.jpeg" alt=""></div>
+    </div>
+    <div class="column">
+        <div class="item"><img src="./img/WP6.jpeg" alt=""></div>
+        <div class="item"><img src="./img/WP7.jpeg" alt=""></div>
+        <div class="item"><img src="./img/WP8.jpeg" alt=""></div>
+        <div class="item"><img src="./img/WP9.jpeg" alt=""></div>
+        <div class="item"><img src="./img/wp61.jpg.jpeg" alt=""></div>
+    </div>
+    <div class="column">
+        <div class="item"><img src="https://picsum.photos/400/412" alt=""></div>
+        <div class="item"><img src="https://picsum.photos/400/413" alt=""></div>
+        <div class="item"><img src="https://picsum.photos/400/414" alt=""></div>
+        <div class="item"><img src="https://picsum.photos/400/415" alt=""></div>
+        <div class="item"><img src="https://picsum.photos/400/416" alt=""></div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

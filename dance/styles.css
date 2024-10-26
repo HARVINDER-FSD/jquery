@@ -12,26 +12,29 @@ body {
 }
 
 /* Navbar */
-nav {
-  
-    top: 0;
+/* General Navbar Styles */
+.navbar {
+    position: fixed;
     width: 100%;
-    background-color: #00000096;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
     display: flex;
     justify-content: space-between;
-    padding: 1rem 2rem;    
+    align-items: center;
+    padding: 1rem 2rem;
     z-index: 1000;
-    position: fixed;
 }
 
-nav h1 {
+.logo h1 {
     color: white;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-   align-items: center;
+    align-items: center;
 }
 
 .nav-links li {
@@ -48,6 +51,75 @@ nav h1 {
 .nav-links li a:hover {
     color: #f80;
 }
+
+/* Burger menu styles */
+.burger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.burger .line {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: transform 0.3s ease;
+}
+
+/* Cross icon styles */
+.burger.active .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger.active .line:nth-child(2) {
+    opacity: 0; /* Hide the middle line */
+}
+
+.burger.active .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in-out;
+    }
+
+    /* Show the burger icon */
+    .burger {
+        display: flex;
+    }
+
+    /* Active nav-links styles */
+    .nav-links.active {
+        transform: translateX(0);
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+        opacity: 0;
+        transition: opacity 0.5s ease 0.3s;
+    }
+
+    .nav-links.active li {
+        opacity: 1;
+        transition-delay: 0.5s;
+    }
+}
+
+
+
 
 /* Hero Section with Parallax */
 /* Hero Section */
@@ -139,7 +211,7 @@ nav h1 {
   }
   
   .prev-btn, .next-btn {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0);
     border: none;
     font-size: 2rem;
     color: white;
@@ -174,15 +246,21 @@ nav h1 {
     font-size: 3rem;
     color: #f80;
 }
+@media (max-width: 768px){
+    .counter-grid {
+        flex-direction: column;
+        justify-content: space-around;
+    }
+}
 
 /* Classes Section */
 /* Our Classes Section */
 /* Dance Programs Section Styling */
 /* Dance Programs Section Styling */
 .dance-program-section {
-    padding: 80px 0;
+    padding: 80px 40px;
     /* background: linear-gradient(135deg, #ff6f61, #ffcc00); */
-    background-color: #0a0a0a;
+    background-color:#21253c;
     color: white;
     text-align: center;
 }
@@ -257,7 +335,7 @@ nav h1 {
 .program-info h4 {
     font-size: 2rem;
     margin-bottom: 10px;
-    color: #ffcc00;
+    color: #f80
 }
 
 .program-info p {
@@ -309,119 +387,126 @@ nav h1 {
     position: relative;
 }
 
+.overlay2 {
+    background-color: rgba(10, 9, 10, 0.842);
+    padding: 160px 0;
+    text-align: center;
+}
 
+.header h2 {
+    font-size: 40px;
+    color: #fff;
+    margin-bottom: 10px;
+}
 
+.header p {
+    font-size: 50px;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-decoration: underline;
+    text-transform: uppercase;
+}
 
-    .overlay2 {
-        background-color: rgba(10, 9, 10, 0.842);
-        /* Matching pink overlay */
-        padding: 160px 0;
-        text-align: center;
-    }
+.pricing-plans {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+    flex-wrap: wrap; /* Allows wrapping of cards on smaller screens */
+}
 
+.pricing-card {
+    background-color: #fff;
+    padding: 30px;
+    width: 250px;
+    text-align: center;
+    border-left: 1px solid #ddd;
+    border-top: 2px solid #ddd;
+    position: relative;
+}
+
+.pricing-card h3 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.pricing-card p {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+.pricing-card h2 {
+    font-size: 36px;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.pricing-card h2 span {
+    font-size: 16px;
+    color: #666;
+}
+
+.pricing-card ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.pricing-card ul li {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.pricing-card button {
+    background-color: transparent;
+    border: 2px solid #000;
+    padding: 10px 20px;
+    color: #000;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.pricing-card button:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
     .header h2 {
-        font-size: 40px;
-        color: #fff;
-        margin-bottom: 10px;
+        font-size: 32px;
     }
 
     .header p {
-        font-size: 50px;
-        color: #fff;
-        font-weight: bold;
-        margin-bottom: 40px;
-        text-decoration: underline;
-        /* Adding underline as per image */
-        text-transform: uppercase;
-    }
-
-    .pricing-plans {
-        display: flex;
-        justify-content: center;
-        align-items: stretch;
-        gap: 20px;
+        font-size: 36px;
     }
 
     .pricing-card {
-        background-color: #fff;
-        padding: 30px;
-        width: 250px;
-        text-align: center;
-        border-left: 1px solid #ddd;
-        /* Create divider line between cards */
-        border-top: 2px solid #ddd;
+        width: 45%;
+    }
+}
 
-        position: relative;
+@media (max-width: 768px) {
+    .header h2 {
+        font-size: 28px;
     }
 
-    .pricing-card:nth-child(1),
-    .pricing-card:nth-child(2),
-    .pricing-card:nth-child(3) {
-        border-right: 2px solid #0a0a0a;
-        /* Adding border-right to second, third, and fourth cards */
+    .header p {
+        font-size: 28px;
     }
 
-    .pricing-card h3 {
-        font-size: 16px;
-        color: #333;
-        margin-bottom: 10px;
-    }
-
-    .pricing-card p {
-        font-size: 14px;
-        color: #888;
+    .pricing-card {
+        width: 100%;
         margin-bottom: 20px;
     }
+}
 
-    .pricing-card h2 {
-        font-size: 36px;
-        color: #000;
-        margin-bottom: 20px;
-    }
-
-    .pricing-card h2 span {
-        font-size: 16px;
-        color: #666;
-    }
-
-    .pricing-card ul {
-        list-style: none;
-        padding: 0;
-        margin-bottom: 20px;
-    }
-
-    .pricing-card ul li {
-        font-size: 14px;
-        color: #333;
-        margin-bottom: 10px;
-    }
-
-    .pricing-card button {
-        background-color: transparent;
-        border: 2px solid #000;
-        padding: 10px 20px;
-        color: #000;
-        font-size: 14px;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: all 0.3s ease;
-    }
-
-    .pricing-card button:hover {
-        background-color: #000;
-        color: #fff;
-    }
-
-    /* Remove gap between cards */
-    .pricing-card+.pricing-card {
-        margin-left: -1px;
-        /* Overlapping the borders */
-    }
-
-    .pricing-plans .pricing-card:not(:first-child) {
-        border-left: none;
-        /* No border between the cards */
-    }
     .dance-styles {
         display: flex;
         justify-content: space-around;
@@ -466,12 +551,48 @@ nav h1 {
         display: block;
         margin: 0 auto;
     }
+    @media (max-width: 1024px) {
+        .style-item {
+            width: 45%;
+            padding: 15px;
+        }
+        
+        .style-item h2 {
+            font-size: 30px;
+        }
+        
+        .style-item img {
+            width: 70px;
+            height: 70px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .style-item {
+            width: 100%; /* Full width for small screens */
+            padding: 10px;
+        }
+        
+        .style-item h2 {
+            font-size: 24px;
+        }
+        
+        .style-item img {
+            width: 60px;
+            height: 60px;
+        }
+        
+        .style-item p {
+            font-size: 14px;
+        }
+    }
+    
     /* #container15 {
 height: 200px;
 } */
 
 .imgs {
-/* background: white; */
+/* background:white; */
 border-radius: 100%;
 width: 50px;
 height: 50px;
@@ -502,14 +623,18 @@ fill: #fff;
 }
 
     /* classing */
+    .classing{
+        background-color: #21253c;
+    }
     .classing h1 {
         font-size: 50px;
         text-align: center;
         padding-top: 20px;
         text-decoration: underline;
-        text-decoration-color: red;
-        color: #333; /* Darker color for better readability */
+        text-decoration-color: rgb(151, 150, 150);
+        color: #d8d1d1; /* Darker color for better readability */
         font-family: 'Arial', sans-serif; /* Adding a clean font */
+      
     }
     
     .image-grid {
@@ -523,7 +648,6 @@ fill: #fff;
         padding: 20px; /* Adds padding around the gallery */
         overflow: hidden;
     }
-    
     .grid-item {
         flex: 1 1 calc(25% - 20px); /* 4 items per row, adjusts automatically */
         max-width: calc(25% - 20px); /* Keeps the grid uniform */

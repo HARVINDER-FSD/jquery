@@ -1,12 +1,23 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Burger Menu Toggle
-    const burger = document.querySelector('.burger');
-    const navLinks = document.querySelector('.nav-links');
+// JavaScript to toggle the mobile menu
+const burger = document.querySelector('.burger');
+const navLinks = document.querySelector('.nav-links');
+const navLinkItems = document.querySelectorAll('.nav-links li');
 
-    burger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
+// Toggle the active class to show/hide the menu and change the burger icon
+burger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    burger.classList.toggle('active');
+});
+
+// Close the menu when a link is clicked
+navLinkItems.forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        burger.classList.remove('active'); // Reset burger icon
     });
 });
+
+
     // Counter Animation
     const counters = document.querySelectorAll('.counter');
     const speed = 200;
