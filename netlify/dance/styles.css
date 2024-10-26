@@ -648,7 +648,6 @@ fill: #fff;
         padding: 20px; /* Adds padding around the gallery */
         overflow: hidden;
     }
-    
     .grid-item {
         flex: 1 1 calc(25% - 20px); /* 4 items per row, adjusts automatically */
         max-width: calc(25% - 20px); /* Keeps the grid uniform */
